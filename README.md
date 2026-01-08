@@ -38,6 +38,20 @@ NGSST introduces two genuinely novel mechanisms:
 
 ## Installation
 
+## Create Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+## Activate Virtual Environment
+
+```bash
+.venv/scripts/activate.ps1
+```
+
+## Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -251,16 +265,35 @@ This implementation introduces two genuinely novel mechanisms:
 
 These mechanisms go beyond simple combinations of existing ideas by introducing new mathematical structures (geometric equivariance in state space models) and new training paradigms (geometrically-constrained predictive coding).
 
+## Upcoming Development
+
+- Fully finalizing the NGSST architecture
+- Develop a natural learning/training method
+- Large Scale deployement and benchmarking
+- Integration into RL pipelines
+
 ## Citation
 
 ```bibtex
 @article{ngsst2026,
  title={Neural Geometric State Space Transformer: A Unified Architecture for Resolution-Agnostic Vision with Continuous Geometric Dynamics},
- author={Vision Modality Research Initiative},
- journal={arXiv preprint arXiv:2026.XXXXX},
+ author={Christian Trey Rowell},
+ journal={},
  year={2026}
 }
 ```
+
+## Contact
+
+For questions, collaborations, or discussions about NGSST:
+
+**Christian Trey Rowell**  
+Email: treyrowell1826@gmail.com  
+GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
+
+---
+
+*NGSST is part of ongoing research into geometric approaches to vision and AI. Watch this space for updates.*
 
 ## License
 
