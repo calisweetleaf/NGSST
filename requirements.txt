@@ -1,0 +1,12 @@
+torch
+torchvision
+numpy
+matplotlib
+tqdm
+scipy
+pillow
+pikepdf
+mutagen
+poppler-utils
+bibtexparser
+ffmpeg

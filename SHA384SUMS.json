@@ -1,0 +1,484 @@
+{
+  "Algorithm": "SHA384",
+  "Files": [
+    {
+      "Size": 9477,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\utils.py",
+      "Algorithm": "SHA384",
+      "Hash": "3971040b651c1ead8841a7298b6fb8ac1fe71a7484ea0953cccfd327303d9a9073bef1a162aa0f596f1f76e18246a7bb",
+      "FrequencySignature": {
+        "Entropy": 5.0703,
+        "SignatureTime": "2026-01-08T20:41:03.8246456Z",
+        "ZeroCrossingRate": 0.227,
+        "SpectralCentroid": 0.5037,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "3C7CECF0C0D1D1F1",
+      "Metadata": {
+        "Size": 9477,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\utils.py",
+        "Encoding": "",
+        "Created": "2026-01-08T17:01:44.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.2824320-06:00",
+        "Extension": ".py"
+      },
+      "RelativePath": "ngsst_implementation\\utils.py",
+      "Modified": "2026-01-08T13:50:28.2824320-06:00"
+    },
+    {
+      "Size": 18417,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\modules.py",
+      "Algorithm": "SHA384",
+      "Hash": "6211def9007aac98119652e33e41caab8627cc80fb478d688b8a656605e07b6efe1940141c91c39fc0b7de6e14343718",
+      "FrequencySignature": {
+        "Entropy": 5.0618,
+        "SignatureTime": "2026-01-08T20:41:05.3374885Z",
+        "ZeroCrossingRate": 0.2281,
+        "SpectralCentroid": 0.5009,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "775F5C7C3D3468EC",
+      "Metadata": {
+        "Size": 18417,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\modules.py",
+        "Encoding": "",
+        "Created": "2026-01-08T17:43:30.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.2543509-06:00",
+        "Extension": ".py"
+      },
+      "RelativePath": "ngsst_implementation\\modules.py",
+      "Modified": "2026-01-08T13:50:28.2543509-06:00"
+    },
+    {
+      "Size": 8698,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\models.py",
+      "Algorithm": "SHA384",
+      "Hash": "34bfe090699a84092e0ee5950dc390d24b5dcaf4f9d1c6f2f219e8dd46a3d4a14c192b74c0404142967fb2eea6a5be19",
+      "FrequencySignature": {
+        "Entropy": 4.9892,
+        "SignatureTime": "2026-01-08T20:41:06.6406783Z",
+        "ZeroCrossingRate": 0.2225,
+        "SpectralCentroid": 0.5011,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "D2FA7ABAB5A5A1A5",
+      "Metadata": {
+        "Size": 8698,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\models.py",
+        "Encoding": "",
+        "Created": "2026-01-08T17:07:46.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.2172963-06:00",
+        "Extension": ".py"
+      },
+      "RelativePath": "ngsst_implementation\\models.py",
+      "Modified": "2026-01-08T13:50:28.2172963-06:00"
+    },
+    {
+      "Size": 13341,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\demo.py",
+      "Algorithm": "SHA384",
+      "Hash": "77ddcfadedbf3146e14880b7c7090115c800833255f984ac7754d10d27a797bfd0516c53e128c2c0430ca22766e92923",
+      "FrequencySignature": {
+        "Entropy": 5.0811,
+        "SignatureTime": "2026-01-08T20:41:08.0563854Z",
+        "ZeroCrossingRate": 0.2156,
+        "SpectralCentroid": 0.5009,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "B1193E2D3C4D186A",
+      "Metadata": {
+        "Size": 13341,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\demo.py",
+        "Encoding": "",
+        "Created": "2026-01-08T17:02:52.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.3133677-06:00",
+        "Extension": ".py"
+      },
+      "RelativePath": "ngsst_implementation\\demo.py",
+      "Modified": "2026-01-08T13:50:28.3133677-06:00"
+    },
+    {
+      "Size": 832,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\__init__.py",
+      "Algorithm": "SHA384",
+      "Hash": "2087bbe8fd09d3e6fefa555fa3aaad7cc1aad7289bd4385ab76821fd027fa1a3755b1dc92351f84fd8f42639893b1007",
+      "FrequencySignature": {
+        "Entropy": 4.7428,
+        "SignatureTime": "2026-01-08T20:41:09.1930533Z",
+        "ZeroCrossingRate": 0.1791,
+        "SpectralCentroid": 0.4905,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "31310D414969607A",
+      "Metadata": {
+        "Size": 832,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\ngsst_implementation\\__init__.py",
+        "Encoding": "",
+        "Created": "2026-01-08T16:59:10.0000000-06:00",
+        "Modified": "2026-01-08T11:55:07.7729323-06:00",
+        "Extension": ".py"
+      },
+      "RelativePath": "ngsst_implementation\\__init__.py",
+      "Modified": "2026-01-08T11:55:07.7729323-06:00"
+    },
+    {
+      "Size": 11744,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\novel_architecture_design.md",
+      "Algorithm": "SHA384",
+      "Hash": "a45cc9efb2f53208dc7e42da0e078d4b7a78064f7dab168725a75453dab56d0d1933cb9038492b23809f8c8037aef91b",
+      "FrequencySignature": {
+        "Entropy": 4.9591,
+        "SignatureTime": "2026-01-08T20:41:10.5725750Z",
+        "ZeroCrossingRate": 0.213,
+        "SpectralCentroid": 0.5002,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "A4C66E7ECAC8A1C9",
+      "Metadata": {
+        "Size": 11744,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\novel_architecture_design.md",
+        "Encoding": "",
+        "Created": "2026-01-08T16:56:26.0000000-06:00",
+        "Modified": "2026-01-08T12:14:27.3044805-06:00",
+        "Extension": ".md"
+      },
+      "RelativePath": "docs\\novel_architecture_design.md",
+      "Modified": "2026-01-08T12:14:27.3044805-06:00"
+    },
+    {
+      "Size": 35264,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\neural_geometric_state_space_transformer.md",
+      "Algorithm": "SHA384",
+      "Hash": "8d80b5d71e1df802535663024b8b5923a2da54ef3025ff79f73bbe6fafba8b94dba989823fd1696f82d5302ac727cf53",
+      "FrequencySignature": {
+        "Entropy": 5.1751,
+        "SignatureTime": "2026-01-08T20:41:12.4395829Z",
+        "ZeroCrossingRate": 0.2544,
+        "SpectralCentroid": 0.4829,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "2E8854B80CC9777F",
+      "Metadata": {
+        "Size": 35264,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\neural_geometric_state_space_transformer.md",
+        "Encoding": "",
+        "Created": "2026-01-08T16:58:52.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.3589864-06:00",
+        "Extension": ".md"
+      },
+      "RelativePath": "docs\\neural_geometric_state_space_transformer.md",
+      "Modified": "2026-01-08T13:50:28.3589864-06:00"
+    },
+    {
+      "Size": 8122,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\MISSION_SUMMARY.md",
+      "Algorithm": "SHA384",
+      "Hash": "d99687b9e73c3307bbdce362c420200f9d578beb361242fb7a190ded2eb1f377e398e6c2eb08719d72ba3da5c423e8c3",
+      "FrequencySignature": {
+        "Entropy": 5.118,
+        "SignatureTime": "2026-01-08T20:41:13.7227768Z",
+        "ZeroCrossingRate": 0.2236,
+        "SpectralCentroid": 0.5066,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "B393585669EB257B",
+      "Metadata": {
+        "Size": 8122,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\MISSION_SUMMARY.md",
+        "Encoding": "",
+        "Created": "2026-01-08T17:46:00.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.3877372-06:00",
+        "Extension": ".md"
+      },
+      "RelativePath": "docs\\MISSION_SUMMARY.md",
+      "Modified": "2026-01-08T13:50:28.3877372-06:00"
+    },
+    {
+      "Size": 6506,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\cross_synthesis_analysis.md",
+      "Algorithm": "SHA384",
+      "Hash": "da90784f27385d21485887cd7b076450a6341a892cfb0de3910119525b883182658ed42a7c4b00d6ffa81d06c6f49c12",
+      "FrequencySignature": {
+        "Entropy": 4.8472,
+        "SignatureTime": "2026-01-08T20:41:14.9833594Z",
+        "ZeroCrossingRate": 0.2133,
+        "SpectralCentroid": 0.504,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "AE47975070766353",
+      "Metadata": {
+        "Size": 6506,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\docs\\cross_synthesis_analysis.md",
+        "Encoding": "",
+        "Created": "2026-01-08T16:55:40.0000000-06:00",
+        "Modified": "2026-01-08T12:14:06.7591043-06:00",
+        "Extension": ".md"
+      },
+      "RelativePath": "docs\\cross_synthesis_analysis.md",
+      "Modified": "2026-01-08T12:14:06.7591043-06:00"
+    },
+    {
+      "Size": 19196,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\WIKI.md",
+      "Algorithm": "SHA384",
+      "Hash": "f997c87162cb1218509591c79e9da269260e5a0fe4b74be8db2349dcbcc4baf2f2a60c81906d56a4906c0a64f59842b1",
+      "FrequencySignature": {
+        "Entropy": 5.2441,
+        "SignatureTime": "2026-01-08T20:41:16.5607698Z",
+        "ZeroCrossingRate": 0.2331,
+        "SpectralCentroid": 0.4828,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "E640D6C65FFD4578",
+      "Metadata": {
+        "Size": 19196,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\WIKI.md",
+        "Encoding": "",
+        "Created": "2026-01-08T13:24:11.3482533-06:00",
+        "Modified": "2026-01-08T13:24:17.8036442-06:00",
+        "Extension": ".md"
+      },
+      "RelativePath": "WIKI.md",
+      "Modified": "2026-01-08T13:24:17.8036442-06:00"
+    },
+    {
+      "Size": 11803,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\validation.py",
+      "Algorithm": "SHA384",
+      "Hash": "614547d44d36dfc5314555b2a72d153a8626cc6ee787cb92fb4a649027cbdc4a797a53f03af263f0f71399c82de3c1b3",
+      "FrequencySignature": {
+        "Entropy": 5.0901,
+        "SignatureTime": "2026-01-08T20:41:17.9231259Z",
+        "ZeroCrossingRate": 0.2172,
+        "SpectralCentroid": 0.5007,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "4E47117731D9D49C",
+      "Metadata": {
+        "Size": 11803,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\validation.py",
+        "Encoding": "",
+        "Created": "2026-01-08T17:45:24.0000000-06:00",
+        "Modified": "2026-01-08T13:50:28.1879777-06:00",
+        "Extension": ".py"
+      },
+      "RelativePath": "validation.py",
+      "Modified": "2026-01-08T13:50:28.1879777-06:00"
+    },
+    {
+      "Size": 1215,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA256SUMS.txt",
+      "Algorithm": "SHA384",
+      "Hash": "b381cee487098b87f8574b0b02061c7b1ec8e6dac552f6492d8a0f45ee05d1c0996e948a3b312ed90ba9258d8b02b453",
+      "FrequencySignature": {
+        "Entropy": 4.9216,
+        "SignatureTime": "2026-01-08T20:41:19.0672449Z",
+        "ZeroCrossingRate": 0.349,
+        "SpectralCentroid": 0.494,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "33B7FAC0E1D47A4C",
+      "Metadata": {
+        "Size": 1215,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA256SUMS.txt",
+        "Encoding": "",
+        "Created": "2026-01-08T14:28:10.1343158-06:00",
+        "Modified": "2026-01-08T14:28:10.1343158-06:00",
+        "Extension": ".txt"
+      },
+      "RelativePath": "SHA256SUMS.txt",
+      "Modified": "2026-01-08T14:28:10.1343158-06:00"
+    },
+    {
+      "Size": 14750,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA256SUMS.json",
+      "Algorithm": "SHA384",
+      "Hash": "84b2fae20d308e0d7ecb7f1b4971c380fb9c6eec4232ddb7e48bc8693e4c621aff815bbfd73fdebd160cee1b648537e2",
+      "FrequencySignature": {
+        "Entropy": 5.0623,
+        "SignatureTime": "2026-01-08T20:41:20.5035698Z",
+        "ZeroCrossingRate": 0.1731,
+        "SpectralCentroid": 0.4951,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "EC6F4D2828495A48",
+      "Metadata": {
+        "Size": 14750,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA256SUMS.json",
+        "Encoding": "",
+        "Created": "2026-01-08T14:28:10.5079714-06:00",
+        "Modified": "2026-01-08T14:28:10.5097979-06:00",
+        "Extension": ".json"
+      },
+      "RelativePath": "SHA256SUMS.json",
+      "Modified": "2026-01-08T14:28:10.5097979-06:00"
+    },
+    {
+      "Size": 1858,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA256SUMS.csv",
+      "Algorithm": "SHA384",
+      "Hash": "d5c5185a8bd19495613765cf42456385148adb2ca4d5d2e980591e7657a9002b4d9f4d55a9321c881389a3b815b50b12",
+      "FrequencySignature": {
+        "Entropy": 4.9411,
+        "SignatureTime": "2026-01-08T20:41:21.6366512Z",
+        "ZeroCrossingRate": 0.2443,
+        "SpectralCentroid": 0.4826,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "2BBA8AFDAC059154",
+      "Metadata": {
+        "Size": 1858,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA256SUMS.csv",
+        "Encoding": "",
+        "Created": "2026-01-08T14:28:10.5675517-06:00",
+        "Modified": "2026-01-08T14:28:10.5825951-06:00",
+        "Extension": ".csv"
+      },
+      "RelativePath": "SHA256SUMS.csv",
+      "Modified": "2026-01-08T14:28:10.5825951-06:00"
+    },
+    {
+      "Size": 1078,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA1SUMS.txt",
+      "Algorithm": "SHA384",
+      "Hash": "00bd50482453f88ffe21f9e2097fb61cfb069592e123deb466567788c800d956e03b1ce9bbd1ee46b17d3ae2ac74bc5f",
+      "FrequencySignature": {
+        "Entropy": 5.103,
+        "SignatureTime": "2026-01-08T20:41:22.7765080Z",
+        "ZeroCrossingRate": 0.3506,
+        "SpectralCentroid": 0.4821,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "B5E12919C3E1E62C",
+      "Metadata": {
+        "Size": 1078,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA1SUMS.txt",
+        "Encoding": "",
+        "Created": "2026-01-08T14:34:48.8575896-06:00",
+        "Modified": "2026-01-08T14:34:48.8581038-06:00",
+        "Extension": ".txt"
+      },
+      "RelativePath": "SHA1SUMS.txt",
+      "Modified": "2026-01-08T14:34:48.8581038-06:00"
+    },
+    {
+      "Size": 17594,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA1SUMS.json",
+      "Algorithm": "SHA384",
+      "Hash": "5acf60a3ba7f5726f766f71d660223a1dd8b8245a9722d0487e1863a8bea82f87ddcbb2b4cbf3ca9d9d926e7c0dfe9af",
+      "FrequencySignature": {
+        "Entropy": 5.043,
+        "SignatureTime": "2026-01-08T20:41:24.2699627Z",
+        "ZeroCrossingRate": 0.1706,
+        "SpectralCentroid": 0.4944,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "6A4A506446F6D490",
+      "Metadata": {
+        "Size": 17594,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA1SUMS.json",
+        "Encoding": "",
+        "Created": "2026-01-08T14:34:49.0820900-06:00",
+        "Modified": "2026-01-08T14:34:49.0826081-06:00",
+        "Extension": ".json"
+      },
+      "RelativePath": "SHA1SUMS.json",
+      "Modified": "2026-01-08T14:34:49.0826081-06:00"
+    },
+    {
+      "Size": 1860,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA1SUMS.csv",
+      "Algorithm": "SHA384",
+      "Hash": "aeefb45be53cb7b47b8ed7dbf9893cdafec9ee411e055f3ca9697621ac92dafdee6bf812e2a12f8128c606fae15c596f",
+      "FrequencySignature": {
+        "Entropy": 5.0138,
+        "SignatureTime": "2026-01-08T20:41:25.4457060Z",
+        "ZeroCrossingRate": 0.2226,
+        "SpectralCentroid": 0.4784,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "389C6CF858ECCC32",
+      "Metadata": {
+        "Size": 1860,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA1SUMS.csv",
+        "Encoding": "",
+        "Created": "2026-01-08T14:34:49.1421818-06:00",
+        "Modified": "2026-01-08T14:34:49.1537811-06:00",
+        "Extension": ".csv"
+      },
+      "RelativePath": "SHA1SUMS.csv",
+      "Modified": "2026-01-08T14:34:49.1537811-06:00"
+    },
+    {
+      "Size": 102,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\requirements.txt",
+      "Algorithm": "SHA384",
+      "Hash": "b091a117f09ae59e4a786d166e8a4102de2eb1b7543e6dd25faaabc2b9b1d020a321ae6f66060d4a2588aeb9c784c742",
+      "FrequencySignature": {
+        "Entropy": 4.3353,
+        "SignatureTime": "2026-01-08T20:41:26.5432878Z",
+        "ZeroCrossingRate": 0.2941,
+        "SpectralCentroid": 0.4945,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "F8D8D0F83878F0C0",
+      "Metadata": {
+        "Size": 102,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\requirements.txt",
+        "Encoding": "",
+        "Created": "2026-01-08T17:03:00.0000000-06:00",
+        "Modified": "2026-01-08T12:55:39.0265118-06:00",
+        "Extension": ".txt"
+      },
+      "RelativePath": "requirements.txt",
+      "Modified": "2026-01-08T12:55:39.0265118-06:00"
+    },
+    {
+      "Size": 7358,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\README.md",
+      "Algorithm": "SHA384",
+      "Hash": "742f7f2a48b41d5657a0fff1ffe970a1d538d37a348b51fd4afc2d2fc20887b83aaee31fccfc41944ce53523d6a20094",
+      "FrequencySignature": {
+        "Entropy": 5.1664,
+        "SignatureTime": "2026-01-08T20:41:27.8146664Z",
+        "ZeroCrossingRate": 0.2191,
+        "SpectralCentroid": 0.4987,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "PerceptualHash": "D1A153D3CF4DA4ED",
+      "Metadata": {
+        "Size": 7358,
+        "ContentType": "application/octet-stream",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\README.md",
+        "Encoding": "",
+        "Created": "2026-01-08T12:14:43.0254358-06:00",
+        "Modified": "2026-01-08T13:50:07.0204844-06:00",
+        "Extension": ".md"
+      },
+      "RelativePath": "README.md",
+      "Modified": "2026-01-08T13:50:07.0204844-06:00"
+    }
+  ],
+  "GitTag": "N/A",
+  "Generated": "2026-01-08T20:41:29.1014355Z",
+  "GitCommit": "N/A",
+  "ReleaseVersion": ""
+}

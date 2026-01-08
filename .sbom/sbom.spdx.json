@@ -1,0 +1,693 @@
+{
+  "DocumentNamespace": "https://example.com/sbom/82abf2af-2089-49c3-83fd-b2074f2359ea",
+  "CreationInfo": {
+    "Created": "2026-01-08T20:54:59Z",
+    "Creators": [
+      "Tool: hash-index.ps1"
+    ],
+    "LicenseListVersion": "3.21"
+  },
+  "Packages": [
+    {
+      "Name": "README.md",
+      "Checksums": [
+        {
+          "Value": "ac48294f64435393350cbc87fea2c11a2ec6d28e8d8859ddf8907d861a30720479adb326325be4febf12cebd495f1184559d8bf6527b1f74fc5dde275aa826b2",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-1",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "README.md",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "ac48294f64435393350cbc87fea2c11a2ec6d28e8d8859ddf8907d861a30720479adb326325be4febf12cebd495f1184559d8bf6527b1f74fc5dde275aa826b2",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "requirements.txt",
+      "Checksums": [
+        {
+          "Value": "37aeaa19fc9d554da0baf7bf1c06fe311d4cd02e85a18fae1a5ec7ef44ea43d03c0c40cd20323c0be84a0eb306e3b290462673cf0e6e1392bbca1967b5475e1d",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-2",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "requirements.txt",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "37aeaa19fc9d554da0baf7bf1c06fe311d4cd02e85a18fae1a5ec7ef44ea43d03c0c40cd20323c0be84a0eb306e3b290462673cf0e6e1392bbca1967b5475e1d",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA1SUMS.csv",
+      "Checksums": [
+        {
+          "Value": "483d24ec106756b6d95877262e780787e9adae557af54187541a3f444a7dce774701a31a9c21b0023d1bec2cf75e93087aa86aa5d2f62600c9d2e418a6021c6c",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-3",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA1SUMS.csv",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "483d24ec106756b6d95877262e780787e9adae557af54187541a3f444a7dce774701a31a9c21b0023d1bec2cf75e93087aa86aa5d2f62600c9d2e418a6021c6c",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA1SUMS.json",
+      "Checksums": [
+        {
+          "Value": "6ede17aba0416bcd1c85482262e36780b48420eca7c2684eb3ec1d5fe2f9c187f5424f011218d309c000a07d382019bc289a9e3dc57655a7d0f6ce71943e6fdd",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-4",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA1SUMS.json",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "6ede17aba0416bcd1c85482262e36780b48420eca7c2684eb3ec1d5fe2f9c187f5424f011218d309c000a07d382019bc289a9e3dc57655a7d0f6ce71943e6fdd",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA1SUMS.txt",
+      "Checksums": [
+        {
+          "Value": "fa8cfde262d2c8dc1ecc61fd1c9d428ffb78d6db96a92ed0208275481a5591b21b38ab6d1aa919fc1c03b8a525c2e12926cd9122d08180baa1ed1868e5cbae68",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-5",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA1SUMS.txt",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "fa8cfde262d2c8dc1ecc61fd1c9d428ffb78d6db96a92ed0208275481a5591b21b38ab6d1aa919fc1c03b8a525c2e12926cd9122d08180baa1ed1868e5cbae68",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA256SUMS.csv",
+      "Checksums": [
+        {
+          "Value": "1907f4ac62ce54a71d3c3fb136e25d1f8e30cf7768b117f7b48bf8d52d62e5bdd976714b5ed6a89c5747c101b5a68674a8397093d8715f8c04e9bb3e41ff32e6",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-6",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA256SUMS.csv",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "1907f4ac62ce54a71d3c3fb136e25d1f8e30cf7768b117f7b48bf8d52d62e5bdd976714b5ed6a89c5747c101b5a68674a8397093d8715f8c04e9bb3e41ff32e6",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA256SUMS.json",
+      "Checksums": [
+        {
+          "Value": "51939654b7ee5ef0fe74619b9d28735a8ec5717fbedf3869a5d033d259087de500b27b37dbb759b424a15f0b98ecbc41f23ea870070516c2d966ff8572829751",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-7",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA256SUMS.json",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "51939654b7ee5ef0fe74619b9d28735a8ec5717fbedf3869a5d033d259087de500b27b37dbb759b424a15f0b98ecbc41f23ea870070516c2d966ff8572829751",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA256SUMS.txt",
+      "Checksums": [
+        {
+          "Value": "bcfc8541703c69983e8e5fa6d5d49fed739d9b9b3ed2309fe383126b357c388dd8ebae0a09f3fad46279747d652629826a2c358933d0ab90380b82fc5c0418f6",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-8",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA256SUMS.txt",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "bcfc8541703c69983e8e5fa6d5d49fed739d9b9b3ed2309fe383126b357c388dd8ebae0a09f3fad46279747d652629826a2c358933d0ab90380b82fc5c0418f6",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA384SUMS.csv",
+      "Checksums": [
+        {
+          "Value": "f5803888953a4cb31375f0890cfab9d85ef33e98aba67a055849907f30d005f8ed3b981a457d9000833b25a6110a0002d5598aa694e230126831f4f8ca81fe84",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-9",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA384SUMS.csv",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "f5803888953a4cb31375f0890cfab9d85ef33e98aba67a055849907f30d005f8ed3b981a457d9000833b25a6110a0002d5598aa694e230126831f4f8ca81fe84",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA384SUMS.json",
+      "Checksums": [
+        {
+          "Value": "3a6cfd09ba18a30537cdd91064ad19594bc990a94b6b3758cb73295c4846d5e85020a603bbcfb49841ca56d0d6404f840ba8504fb2c6d38e3b02ecd82dcfdeb2",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-10",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA384SUMS.json",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "3a6cfd09ba18a30537cdd91064ad19594bc990a94b6b3758cb73295c4846d5e85020a603bbcfb49841ca56d0d6404f840ba8504fb2c6d38e3b02ecd82dcfdeb2",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA384SUMS.txt",
+      "Checksums": [
+        {
+          "Value": "0a5f0a8fef6ebd4c22950f0f5382450742593dc690703f4d40717792a12ac19ff9c804d215bf0308bbce9ea18cda790d811a451a2ebf8703b747549d8588569c",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-11",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA384SUMS.txt",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "0a5f0a8fef6ebd4c22950f0f5382450742593dc690703f4d40717792a12ac19ff9c804d215bf0308bbce9ea18cda790d811a451a2ebf8703b747549d8588569c",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA512SUMS.csv",
+      "Checksums": [
+        {
+          "Value": "ce12efb92bd6dbb9e6b5b891b730bc86d93f06122abe0cd70e9c341bf47d39950738b8096e9018f836032375f185e63a9e0fc4266aa2178eb66c4a6e135d9fcf",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-12",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA512SUMS.csv",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "ce12efb92bd6dbb9e6b5b891b730bc86d93f06122abe0cd70e9c341bf47d39950738b8096e9018f836032375f185e63a9e0fc4266aa2178eb66c4a6e135d9fcf",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA512SUMS.json",
+      "Checksums": [
+        {
+          "Value": "abc576189abfa8de2c21d26197184bb1e9f3664714a1a6635da54086cf27486f54182f9ce305c4ae8fefa57aea147a2bb3f0732f969004204a43e7d1eedbb832",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-13",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA512SUMS.json",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "abc576189abfa8de2c21d26197184bb1e9f3664714a1a6635da54086cf27486f54182f9ce305c4ae8fefa57aea147a2bb3f0732f969004204a43e7d1eedbb832",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "SHA512SUMS.txt",
+      "Checksums": [
+        {
+          "Value": "f2aaaaaba984bb49ec0f7c5c17195a5b2379b37dae364a1dfb38cd019dd2ebc3209845f8db6de27e52b6c075dc81b16db6c46496c5e61263ad3456cf26a76c38",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-14",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "SHA512SUMS.txt",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "f2aaaaaba984bb49ec0f7c5c17195a5b2379b37dae364a1dfb38cd019dd2ebc3209845f8db6de27e52b6c075dc81b16db6c46496c5e61263ad3456cf26a76c38",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "validation.py",
+      "Checksums": [
+        {
+          "Value": "0e122e85ee525c3e639560bfcb5ebbf99fe4d8a68925f08d1f89669c468856012e0103e8e7f4de1dbddc39538ecf7a446f98d93d48696b3d835317e98fd0d3cb",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-15",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "validation.py",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "0e122e85ee525c3e639560bfcb5ebbf99fe4d8a68925f08d1f89669c468856012e0103e8e7f4de1dbddc39538ecf7a446f98d93d48696b3d835317e98fd0d3cb",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "WIKI.md",
+      "Checksums": [
+        {
+          "Value": "3a86b1d8d90bd0ce89c3fb9e42b5a019f8765a3d6167252b3be6610966b2ed612b61b2d05cd5e2b0393675daacc216b40e8539d989bb9041291f42a9e1da709c",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-16",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "WIKI.md",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "3a86b1d8d90bd0ce89c3fb9e42b5a019f8765a3d6167252b3be6610966b2ed612b61b2d05cd5e2b0393675daacc216b40e8539d989bb9041291f42a9e1da709c",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "cross_synthesis_analysis.md",
+      "Checksums": [
+        {
+          "Value": "4de3a85898c5e46528c28eaf761a8e97ea10b9807be79694e7f5dde95104f322883ffcb131005c05806deab184f90ced4b288a774655073958aa050a11e4fe3d",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-17",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "docs\\cross_synthesis_analysis.md",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "4de3a85898c5e46528c28eaf761a8e97ea10b9807be79694e7f5dde95104f322883ffcb131005c05806deab184f90ced4b288a774655073958aa050a11e4fe3d",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "MISSION_SUMMARY.md",
+      "Checksums": [
+        {
+          "Value": "692c69a60a5956d7c84a05b47f2ecb5adefc45629e5b052a5c941a935b121433c2e3c507356ac35deea1d17c9069686cb5b416b2a35e7c2c6dab445a71594da5",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-18",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "docs\\MISSION_SUMMARY.md",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "692c69a60a5956d7c84a05b47f2ecb5adefc45629e5b052a5c941a935b121433c2e3c507356ac35deea1d17c9069686cb5b416b2a35e7c2c6dab445a71594da5",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "neural_geometric_state_space_transformer.md",
+      "Checksums": [
+        {
+          "Value": "62bb75d2d3427e15d80a83035bff1b8411dbe836a346442ef82131482ee194a4f2808f9f7abc0ca368540551144f6f4af84db0cbf48914ea3cbad256f3dd3c10",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-19",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "docs\\neural_geometric_state_space_transformer.md",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "62bb75d2d3427e15d80a83035bff1b8411dbe836a346442ef82131482ee194a4f2808f9f7abc0ca368540551144f6f4af84db0cbf48914ea3cbad256f3dd3c10",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "novel_architecture_design.md",
+      "Checksums": [
+        {
+          "Value": "e7b6193a35e3e895d4f56089926a91e5abf5367c953e4b776c7e8de1715c5d717bcc54782431a0f3cef63c3bfe50594903b707312e56271e3adc205c38f93a77",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-20",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "docs\\novel_architecture_design.md",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "e7b6193a35e3e895d4f56089926a91e5abf5367c953e4b776c7e8de1715c5d717bcc54782431a0f3cef63c3bfe50594903b707312e56271e3adc205c38f93a77",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "__init__.py",
+      "Checksums": [
+        {
+          "Value": "0fc1d78513a7936e6d4eb9f0d7e4c0c78df0d8511e0d0d216a99c8227be5f6b59da49818b302b78a396966997630603b771d8133a8738c9ca77b2b0016f6a717",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-21",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "ngsst_implementation\\__init__.py",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "0fc1d78513a7936e6d4eb9f0d7e4c0c78df0d8511e0d0d216a99c8227be5f6b59da49818b302b78a396966997630603b771d8133a8738c9ca77b2b0016f6a717",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "demo.py",
+      "Checksums": [
+        {
+          "Value": "dcb23b3aee8b54e444598a636eb8930ce09f3784a05737776f27cc67ded3f04033a2cd0d32fb28a5b5ab55a06573113e2c28dfd2a4b0dac6338c563872787af8",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-22",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "ngsst_implementation\\demo.py",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "dcb23b3aee8b54e444598a636eb8930ce09f3784a05737776f27cc67ded3f04033a2cd0d32fb28a5b5ab55a06573113e2c28dfd2a4b0dac6338c563872787af8",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "models.py",
+      "Checksums": [
+        {
+          "Value": "bfb8c33066ddaf6758f350c52a20da38b7df2ba9d5c6d966bc80bfa7571a03701d16a356d9ec4055c793f36acf27e648d6b1bd3ec4f304544ee22c9146ae9653",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-23",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "ngsst_implementation\\models.py",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "bfb8c33066ddaf6758f350c52a20da38b7df2ba9d5c6d966bc80bfa7571a03701d16a356d9ec4055c793f36acf27e648d6b1bd3ec4f304544ee22c9146ae9653",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "modules.py",
+      "Checksums": [
+        {
+          "Value": "e75227d9049b68ed2b4bcf48a17841241e2972e0e8cb96a7896e5ccb73780ac341c28e86184bca0ca7c354ed8ec98264722093dc34883f0b5e52b612e7952b6e",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-24",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "ngsst_implementation\\modules.py",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "e75227d9049b68ed2b4bcf48a17841241e2972e0e8cb96a7896e5ccb73780ac341c28e86184bca0ca7c354ed8ec98264722093dc34883f0b5e52b612e7952b6e",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    },
+    {
+      "Name": "utils.py",
+      "Checksums": [
+        {
+          "Value": "de4554a0454d4eef7b538b696efd83eefe84f1a246a94e94061abf5c6b67558bf3ce39a232969b77dfd06d1a04bc6afb08dd9597e7a9eb04756c7fd703400d03",
+          "Algorithm": "BLAKE2B"
+        }
+      ],
+      "CopyrightText": "NOASSERTION",
+      "SPDXID": "SPDXRef-Package-25",
+      "FilesAnalyzed": true,
+      "LicenseConcluded": "NOASSERTION",
+      "FilePath": "ngsst_implementation\\utils.py",
+      "Supplier": "Organization: Unknown",
+      "LicenseDeclared": "NOASSERTION",
+      "VerificationCode": {
+        "Value": "de4554a0454d4eef7b538b696efd83eefe84f1a246a94e94061abf5c6b67558bf3ce39a232969b77dfd06d1a04bc6afb08dd9597e7a9eb04756c7fd703400d03",
+        "Algorithm": "BLAKE2B"
+      },
+      "DownloadLocation": "NOASSERTION",
+      "VersionInfo": "1.0"
+    }
+  ],
+  "SPDXVersion": "SPDX-2.3",
+  "DataLicense": "CC0-1.0",
+  "DocumentName": "Hash-Index-SBOM",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "Relationships": [
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-1"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-2"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-3"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-4"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-5"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-6"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-7"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-8"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-9"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-10"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-11"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-12"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-13"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-14"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-15"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-16"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-17"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-18"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-19"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-20"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-21"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-22"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-23"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-24"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-25"
+    }
+  ]
+}
