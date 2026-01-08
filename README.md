@@ -1,6 +1,6 @@
 <p align="center">
  <a href="https://github.com/calisweetleaf/NGSST" rel="noopener">
- <img width=200px height=200px src="logo.png" alt="NGSST Logo"></a>
+ <img width=200px height=200px src="templates/logo.png" alt="NGSST Logo"></a>
 </p>
 
 <h3 align="center">Neural Geometric State Space Transformer (NGSST)</h3>
@@ -118,6 +118,7 @@ python -m ngsst_implementation.demo
 ```
 
 This will demonstrate all core mechanisms:
+
 1. Multi-scale neural implicit tokenization
 2. Neural Geometric State Space dynamics
 3. Geometric attention with SE(3) equivariance
@@ -157,6 +158,7 @@ loss = geometric_consistency_loss(predictions, targets, transformations)
 ## Model Configurations
 
 ### NGSST-Base
+
 ```python
 config = NGSSTConfig(
  hidden_dim=256,
@@ -167,6 +169,7 @@ config = NGSSTConfig(
 ```
 
 ### NGSST-Large
+
 ```python
 config = NGSSTConfig(
  hidden_dim=384,
@@ -179,6 +182,7 @@ config = NGSSTConfig(
 ## Training
 
 ### Phase 1: Geometric Pretraining
+
 ```python
 # Self-supervised learning with predictive coding
 model.train()
@@ -190,6 +194,7 @@ for batch in pretrain_loader:
 ```
 
 ### Phase 2: Multi-Task Fine-tuning
+
 ```python
 # Fine-tune on downstream tasks
 model.train()
@@ -203,6 +208,7 @@ for batch in train_loader:
 ## Evaluation
 
 ### Classification
+
 ```python
 model.eval()
 correct = 0
@@ -218,6 +224,7 @@ accuracy = correct / total
 ```
 
 ### Video Understanding
+
 ```python
 model.eval()
 with torch.no_grad():
