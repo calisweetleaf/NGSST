@@ -290,17 +290,14 @@ These mechanisms go beyond simple combinations of existing ideas by introducing 
 For questions, collaborations, or discussions about NGSST:
 
 **Christian Trey Rowell**
-Email: <treyrowell1826@gmail.com>
+Email: <treyrowell1826@gmail.com>  
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
-DOI: [10.5281/zenodo.18194037](https://doi.org/10.5281/zenodo.18194037)
+DOI: [10.5281/zenodo.18194837](https://doi.org/10.5281/zenodo.18194837)  
 License Repository: [Somnus License and Dev Tools](https://github.com/calisweetleaf/somnus-license)
-
----
-
 *NGSST is part of ongoing research into geometric approaches to vision and AI. Watch this space for updates.*
 
 ## License
 
-This implementation is provided for research and educational purposes.
+This implementation is provided for research and educational purposes. See the full [LICENSE](LICENSE) file for complete terms.
 
 Rowell, C. T. L. (2026). NGSST: Neural Geometric State Space Transformer (v0.5.1). Zenodo. https://doi.org/10.5281/zenodo.18194037
