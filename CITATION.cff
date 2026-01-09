@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below alongside the terms of the Somnus License."
+authors:
+  - family-names: Rowell
+    given-names: Christian Trey Levi
+    orcid: "https://orcid.org/0009-0008-6550-6316"
+title: "NGSST: Neural Geometric State Space Transformer"
+type: software
+version: "0.5.0"
+date-released: "2026-01-08"
+repository-code: "https://github.com/calisweetleaf/NGSST"
+license-url: "https://github.com/calisweetleaf/NGSST/blob/main/LICENSE"
+keywords:
+  - computer-vision
+  - geometric-deep-learning
+  - state-space-models
+  - transformer-architecture
+  - visual-perception
