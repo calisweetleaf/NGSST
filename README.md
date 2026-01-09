@@ -1,6 +1,6 @@
 <p align="center">
  <a href="https://github.com/calisweetleaf/NGSST" rel="noopener">
- <img width=200px height=200px src="templates/logo.png" alt="NGSST Logo"></a>
+ <img width=200px height=200px src="https://raw.githubusercontent.com/calisweetleaf/NGSST/main/templates/logo.png" alt="NGSST Logo"></a>
 </p>
 
 <h3 align="center">Neural Geometric State Space Transformer (NGSST)</h3>
@@ -288,7 +288,7 @@ These mechanisms go beyond simple combinations of existing ideas by introducing 
 For questions, collaborations, or discussions about NGSST:
 
 **Christian Trey Rowell**
-Email: treyrowell1826@gmail.com
+Email: <treyrowell1826@gmail.com>
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 
 ---
