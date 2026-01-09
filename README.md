@@ -292,6 +292,8 @@ For questions, collaborations, or discussions about NGSST:
 **Christian Trey Rowell**
 Email: <treyrowell1826@gmail.com>
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
+DOI: [10.5281/zenodo.18194037](https://doi.org/10.5281/zenodo.18194037)
+License Repository: [Somnus License and Dev Tools](https://github.com/calisweetleaf/somnus-license)
 
 ---
 
@@ -300,3 +302,5 @@ GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 ## License
 
 This implementation is provided for research and educational purposes.
+
+Rowell, C. T. L. (2026). NGSST: Neural Geometric State Space Transformer (v0.5.1). Zenodo. https://doi.org/10.5281/zenodo.18194037
