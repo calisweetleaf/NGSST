@@ -294,7 +294,7 @@ Email: <treyrowell1826@gmail.com>
 
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 
-DOI: [10.5281/zenodo.18194837](https://doi.org/10.5281/zenodo.18194837)  
+DOI: [10.5281/zenodo.18194837](https://doi.org/10.5281/zenodo.18194037)  
 
 License Repository: [Somnus License and Dev Tools](https://github.com/calisweetleaf/somnus-license)
 
