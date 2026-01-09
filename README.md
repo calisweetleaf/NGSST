@@ -1,6 +1,7 @@
 <p align="center">
- <a href="https://github.com/calisweetleaf/NGSST" rel="noopener">
- <img width=200px height=200px src="https://raw.githubusercontent.com/calisweetleaf/NGSST/main/templates/logo.png" alt="NGSST Logo"></a>
+  <a href="https://github.com/calisweetleaf/NGSST" rel="noopener">
+    <img width="200px" height="200px" src="https://raw.githubusercontent.com/calisweetleaf/NGSST/main/templates/logo.png" alt="NGSST Logo">
+  </a>
 </p>
 
 <h3 align="center">Neural Geometric State Space Transformer (NGSST)</h3>
