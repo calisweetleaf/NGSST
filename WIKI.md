@@ -154,7 +154,7 @@ Where `ξ_t` is the Lie algebra element representing relative camera motion.
 
 **Adaptive Time Constants**:
 ```
-τ_i = τ_base / (1 + ||ξ_t|| + H(x_t^i))
+t_i = t_base / (1 + ||ξ_t|| + H(x_t^i))
 ```
 
 This ensures fast adaptation for dynamic scenes and stable integration for static content.
@@ -168,11 +168,11 @@ This ensures fast adaptation for dynamic scenes and stable integration for stati
 - Geometric bias terms based on 3D positions
 - Adaptive window sizes for computational efficiency
 
-**Complexity**: O(N · w² + G · N) where w is window size and G is global tokens.
+**Complexity**: O(N · w2 + G · N) where w is window size and G is global tokens.
 
 **Attention Mechanism**:
 ```
-A_ij = (q_i · k_j) / √d + β · geom_bias(i, j)
+A_ij = (q_i · k_j) / √d + b · geom_bias(i, j)
 ```
 
 Where `geom_bias(i, j)` encourages attention patterns that respect 3D scene structure.
@@ -244,10 +244,10 @@ from ngsst_implementation import NGSST, NGSSTConfig
 
 # Create model configuration
 config = NGSSTConfig(
-    hidden_dim=256,
-    num_heads=8,
-    num_layers=12,
-    num_classes=1000  # For ImageNet
+ hidden_dim=256,
+ num_heads=8,
+ num_layers=12,
+ num_classes=1000 # For ImageNet
 )
 
 # Initialize model
@@ -255,7 +255,7 @@ model = NGSST(config)
 
 # Forward pass
 import torch
-video = torch.randn(2, 8, 224, 224, 3)  # [B, T, H, W, C]
+video = torch.randn(2, 8, 224, 224, 3) # [B, T, H, W, C]
 outputs = model(video)
 
 print(f"Logits shape: {outputs['logits'].shape}")
@@ -285,13 +285,13 @@ predictions, uncertainties = outputs['predictions'], outputs['uncertainties']
 
 ```python
 config = NGSSTConfig(
-    hidden_dim=384,
-    num_heads=12,
-    num_layers=24,
-    state_dim=384,
-    num_scales=4,
-    prediction_scales=(1, 2, 4, 8),
-    dropout=0.1
+ hidden_dim=384,
+ num_heads=12,
+ num_layers=24,
+ state_dim=384,
+ num_scales=4,
+ prediction_scales=(1, 2, 4, 8),
+ dropout=0.1
 )
 ```
 
@@ -380,21 +380,21 @@ L = L_task + λ_pred × L_predictive + λ_geom × L_geometric
 ```python
 # Pretraining configuration
 pretrain_config = {
-    'batch_size': 4096,
-    'learning_rate': 1e-3,
-    'weight_decay': 0.05,
-    'epochs': 210,
-    'geometric_weight': 0.1,
-    'uncertainty_weight': 0.1
+ 'batch_size': 4096,
+ 'learning_rate': 1e-3,
+ 'weight_decay': 0.05,
+ 'epochs': 210,
+ 'geometric_weight': 0.1,
+ 'uncertainty_weight': 0.1
 }
 
 # Fine-tuning configuration
 finetune_config = {
-    'batch_size': 1024,
-    'learning_rate': 1e-4,
-    'epochs': 75,
-    'task_weight': 1.0,
-    'geometric_weight': 0.05
+ 'batch_size': 1024,
+ 'learning_rate': 1e-4,
+ 'epochs': 75,
+ 'task_weight': 1.0,
+ 'geometric_weight': 0.05
 }
 ```
 
@@ -509,36 +509,36 @@ Configuration class for NGSST models.
 ```python
 @dataclass
 class NGSSTConfig:
-    # Model architecture
-    hidden_dim: int = 256
-    num_heads: int = 8
-    num_layers: int = 12
-    num_scales: int = 4
-    
-    # Geometric State Space
-    state_dim: int = 256
-    time_constant_base: float = 1.0
-    
-    # Tokenization
-    patch_size: int = 16
-    
-    # Attention
-    window_size: int = 7
-    num_global_tokens: int = 4
-    
-    # Predictive Coding
-    prediction_scales: Tuple[int, ...] = (1, 2, 4, 8)
-    uncertainty_weight: float = 0.1
-    geometric_weight: float = 0.1
-    
-    # Training
-    dropout: float = 0.1
-    attention_dropout: float = 0.1
-    
-    # Task heads
-    num_classes: Optional[int] = None
-    detection_head: bool = False
-    segmentation_head: bool = False
+ # Model architecture
+ hidden_dim: int = 256
+ num_heads: int = 8
+ num_layers: int = 12
+ num_scales: int = 4
+
+ # Geometric State Space
+ state_dim: int = 256
+ time_constant_base: float = 1.0
+
+ # Tokenization
+ patch_size: int = 16
+
+ # Attention
+ window_size: int = 7
+ num_global_tokens: int = 4
+
+ # Predictive Coding
+ prediction_scales: Tuple[int, ...] = (1, 2, 4, 8)
+ uncertainty_weight: float = 0.1
+ geometric_weight: float = 0.1
+
+ # Training
+ dropout: float = 0.1
+ attention_dropout: float = 0.1
+
+ # Task heads
+ num_classes: Optional[int] = None
+ detection_head: bool = False
+ segmentation_head: bool = False
 ```
 
 #### NGSST
@@ -547,19 +547,19 @@ Main NGSST model class.
 
 ```python
 class NGSST(nn.Module):
-    def __init__(self, config: NGSSTConfig):
-        # Initialize model components
-    
-    def forward(
-        self,
-        x: torch.Tensor,
-        camera_poses: Optional[torch.Tensor] = None,
-        timestamps: Optional[torch.Tensor] = None,
-        return_predictions: bool = False,
-        return_uncertainty: bool = False,
-        **kwargs
-    ) -> Dict[str, Any]:
-        # Forward pass implementation
+ def __init__(self, config: NGSSTConfig):
+ # Initialize model components
+
+ def forward(
+ self,
+ x: torch.Tensor,
+ camera_poses: Optional[torch.Tensor] = None,
+ timestamps: Optional[torch.Tensor] = None,
+ return_predictions: bool = False,
+ return_uncertainty: bool = False,
+ **kwargs
+ ) -> Dict[str, Any]:
+ # Forward pass implementation
 ```
 
 ### Utility Functions
@@ -568,29 +568,29 @@ class NGSST(nn.Module):
 
 ```python
 def log_SE3(transform: torch.Tensor) -> torch.Tensor:
-    """Convert SE(3) matrix to se(3) Lie algebra element."""
-    
+ """Convert SE(3) matrix to se(3) Lie algebra element."""
+
 def hat_operator(vec: torch.Tensor) -> torch.Tensor:
-    """Hat operator for skew-symmetric matrices."""
+ """Hat operator for skew-symmetric matrices."""
 ```
 
 #### Geometric Utilities
 
 ```python
 def adaptive_time_constant(
-    geometry_change: torch.Tensor,
-    feature_entropy: torch.Tensor,
-    base_tau: float = 1.0
+ geometry_change: torch.Tensor,
+ feature_entropy: torch.Tensor,
+ base_tau: float = 1.0
 ) -> torch.Tensor:
-    """Compute adaptive time constant."""
-    
+ """Compute adaptive time constant."""
+
 def geometric_consistency_loss(
-    predictions: torch.Tensor,
-    targets: torch.Tensor,
-    transformations: torch.Tensor,
-    weight: float = 1.0
+ predictions: torch.Tensor,
+ targets: torch.Tensor,
+ transformations: torch.Tensor,
+ weight: float = 1.0
 ) -> torch.Tensor:
-    """Compute geometric consistency loss."""
+ """Compute geometric consistency loss."""
 ```
 
 ## Contributing
@@ -604,7 +604,7 @@ cd ngsst
 
 # Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate # On Windows: .venv\Scripts\activate
 
 # Install development dependencies
 pip install -r requirements.txt
@@ -659,10 +659,10 @@ If you use NGSST in your research, please cite:
 
 ```bibtex
 @article{ngsst2026,
-  title={Neural Geometric State Space Transformer: A Unified Architecture for Resolution-Agnostic Vision with Continuous Geometric Dynamics},
-  author={Vision Modality Research Initiative},
-  journal={arXiv preprint arXiv:2026.XXXXX},
-  year={2026}
+ title={Neural Geometric State Space Transformer: A Unified Architecture for Resolution-Agnostic Vision with Continuous Geometric Dynamics},
+ author={Vision Modality Research Initiative},
+ journal={arXiv preprint arXiv:2026.XXXXX},
+ year={2026}
 }
 ```
 

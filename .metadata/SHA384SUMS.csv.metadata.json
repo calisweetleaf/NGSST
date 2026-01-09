@@ -1,9 +1,9 @@
 {
-  "Size": 3232,
   "ContentType": "application/octet-stream",
-  "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA384SUMS.csv",
-  "Encoding": "",
   "Created": "2026-01-08T14:41:29.1598200-06:00",
-  "Modified": "2026-01-08T14:41:29.1764544-06:00",
-  "Extension": ".csv"
+  "Encoding": "",
+  "Extension": ".csv",
+  "Size": 5161,
+  "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\NGSST\\SHA384SUMS.csv",
+  "Modified": "2026-01-08T19:01:51.7906822-06:00"
 }

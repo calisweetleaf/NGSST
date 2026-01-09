@@ -287,8 +287,8 @@ These mechanisms go beyond simple combinations of existing ideas by introducing 
 
 For questions, collaborations, or discussions about NGSST:
 
-**Christian Trey Rowell**  
-Email: treyrowell1826@gmail.com  
+**Christian Trey Rowell**
+Email: treyrowell1826@gmail.com
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 
 ---

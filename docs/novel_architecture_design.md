@@ -34,17 +34,17 @@ Geometric Attention Transformer (GAT) → Predictive Coding Head → OUTPUT
 
 ```python
 class NeuralImplicitTokenizer(nn.Module):
-    def __init__(self, hidden_dim=256, num_scales=4):
-        super().__init__()
-        self.kernels = nn.ModuleList([
-            MLP(2, hidden_dim, hidden_layers=3) for _ in range(num_scales)
-        ])
-        self.scale_weights = nn.Parameter(torch.ones(num_scales))
-    
-    def forward(self, coords, scale_idx):
-        # coords: [B, N, 2] - normalized coordinates
-        features = self.kernels[scale_idx](coords)
-        return features * self.scale_weights[scale_idx]
+ def __init__(self, hidden_dim=256, num_scales=4):
+ super().__init__()
+ self.kernels = nn.ModuleList([
+ MLP(2, hidden_dim, hidden_layers=3) for _ in range(num_scales)
+ ])
+ self.scale_weights = nn.Parameter(torch.ones(num_scales))
+
+ def forward(self, coords, scale_idx):
+ # coords: [B, N, 2] - normalized coordinates
+ features = self.kernels[scale_idx](coords)
+ return features * self.scale_weights[scale_idx]
 ```
 
 **Advantages**:
@@ -68,7 +68,7 @@ Neural Geometric SSM: `h_t = f_θ(h_{t-1}, x_t, g_t)`
 Where:
 
 - `h_t ∈ R^N×D` is the geometric state at time t
-- `x_t ∈ R^N×C` is the input features at time t  
+- `x_t ∈ R^N×C` is the input features at time t
 - `g_t ∈ SE(3)` is the camera pose transformation at time t
 - `f_θ` is a learnable neural function that respects geometric equivariance
 
@@ -84,16 +84,16 @@ h_t = σ(GeometricConv(h_{t-1}, g_t · g_{t-1}^{-1})) ⊙ h_{t-1} + InputProj(x_
 
 ```python
 class SE3EquivariantConv(nn.Module):
-    def __init__(self, in_dim, out_dim):
-        super().__init__()
-        self.weight_net = MLP(6, in_dim * out_dim, hidden_layers=2)  # 6 = se(3) dim
-        
-    def forward(self, features, transformation):
-        # features: [B, N, D]
-        # transformation: [B, 4, 4] SE(3) matrix
-        lie_algebra = log_SE3(transformation)  # [B, 6]
-        weights = self.weight_net(lie_algebra)  # [B, D_in, D_out]
-        return torch.einsum('bnd,bdo->bno', features, weights)
+ def __init__(self, in_dim, out_dim):
+ super().__init__()
+ self.weight_net = MLP(6, in_dim * out_dim, hidden_layers=2) # 6 = se(3) dim
+
+ def forward(self, features, transformation):
+ # features: [B, N, D]
+ # transformation: [B, 4, 4] SE(3) matrix
+ lie_algebra = log_SE3(transformation) # [B, 6]
+ weights = self.weight_net(lie_algebra) # [B, D_in, D_out]
+ return torch.einsum('bnd,bdo->bno', features, weights)
 ```
 
 1. **Adaptive Time Constants**:
@@ -101,10 +101,10 @@ Inspired by Liquid Neural Networks, but extended to geometric transformations:
 
 ```python
 def adaptive_time_constant(geometry_change, feature_entropy):
-    # geometry_change: scalar measuring transformation magnitude
-    # feature_entropy: scalar measuring scene complexity
-    tau = base_tau / (1 + geometry_change + feature_entropy)
-    return tau  # Higher change → smaller tau → faster adaptation
+ # geometry_change: scalar measuring transformation magnitude
+ # feature_entropy: scalar measuring scene complexity
+ tau = base_tau / (1 + geometry_change + feature_entropy)
+ return tau # Higher change → smaller tau → faster adaptation
 ```
 
 **Properties**:
@@ -128,31 +128,31 @@ def adaptive_time_constant(geometry_change, feature_entropy):
 
 ```python
 class GeometricAttention(nn.Module):
-    def __init__(self, dim, num_heads=8, window_size=7):
-        super().__init__()
-        self.num_heads = num_heads
-        self.window_size = window_size
-        self.geometric_bias = nn.Parameter(torch.randn(window_size, window_size))
-        
-    def forward(self, x, geometric_coords=None):
-        # x: [B, N, D]
-        # geometric_coords: [B, N, 3] optional 3D coordinates
-        
-        # Standard QKV projection
-        q, k, v = self.qkv(x).chunk(3, dim=-1)
-        
-        # Geometric bias when coordinates available
-        if geometric_coords is not None:
-            rel_pos = geometric_coords[:, :, None] - geometric_coords[:, None, :]
-            geom_bias = self.compute_geometric_bias(rel_pos)
-            attn = (q @ k.transpose(-2, -1) + geom_bias) / sqrt(dim)
-        else:
-            attn = (q @ k.transpose(-2, -1)) / sqrt(dim)
-            
-        return attn @ v
+ def __init__(self, dim, num_heads=8, window_size=7):
+ super().__init__()
+ self.num_heads = num_heads
+ self.window_size = window_size
+ self.geometric_bias = nn.Parameter(torch.randn(window_size, window_size))
+
+ def forward(self, x, geometric_coords=None):
+ # x: [B, N, D]
+ # geometric_coords: [B, N, 3] optional 3D coordinates
+
+ # Standard QKV projection
+ q, k, v = self.qkv(x).chunk(3, dim=-1)
+
+ # Geometric bias when coordinates available
+ if geometric_coords is not None:
+ rel_pos = geometric_coords[:, :, None] - geometric_coords[:, None, :]
+ geom_bias = self.compute_geometric_bias(rel_pos)
+ attn = (q @ k.transpose(-2, -1) + geom_bias) / sqrt(dim)
+ else:
+ attn = (q @ k.transpose(-2, -1)) / sqrt(dim)
+
+ return attn @ v
 ```
 
-**Complexity**: O(N · w²) where w is adaptive window size, achieving linear complexity in practice.
+**Complexity**: O(N · w2) where w is adaptive window size, achieving linear complexity in practice.
 
 ### Component 4: Predictive Coding Head - NOVEL MECHANISM
 
@@ -174,7 +174,7 @@ L_total = L_task + λ_pred × L_predictive + λ_geom × L_geometric + λ_unc × 
 Where:
 - L_task: Standard supervised loss (classification/detection/segmentation)
 - L_predictive: Multi-scale prediction loss
-- L_geometric: Geometric consistency loss  
+- L_geometric: Geometric consistency loss
 - L_uncertainty: Uncertainty regularization
 ```
 
@@ -182,27 +182,27 @@ Where:
 
 ```python
 class PredictiveCodingHead(nn.Module):
-    def __init__(self, dim, num_scales=3):
-        super().__init__()
-        self.predictors = nn.ModuleList([
-            nn.Sequential(
-                nn.Linear(dim, dim),
-                nn.ReLU(),
-                nn.Linear(dim, dim + 1)  # +1 for uncertainty
-            ) for _ in range(num_scales)
-        ])
-        
-    def forward(self, state, targets=None):
-        predictions = []
-        uncertainties = []
-        
-        for predictor in self.predictors:
-            pred = predictor(state)
-            pred_features, uncertainty = pred[..., :-1], pred[..., -1:]
-            predictions.append(pred_features)
-            uncertainties.append(uncertainty)
-            
-        return predictions, uncertainties
+ def __init__(self, dim, num_scales=3):
+ super().__init__()
+ self.predictors = nn.ModuleList([
+ nn.Sequential(
+ nn.Linear(dim, dim),
+ nn.ReLU(),
+ nn.Linear(dim, dim + 1) # +1 for uncertainty
+ ) for _ in range(num_scales)
+ ])
+
+ def forward(self, state, targets=None):
+ predictions = []
+ uncertainties = []
+
+ for predictor in self.predictors:
+ pred = predictor(state)
+ pred_features, uncertainty = pred[..., :-1], pred[..., -1:]
+ predictions.append(pred_features)
+ uncertainties.append(uncertainty)
+
+ return predictions, uncertainties
 ```
 
 ## Training Methodology
@@ -284,7 +284,7 @@ class PredictiveCodingHead(nn.Module):
 
 **Solution**: Neural implicit tokenization handles arbitrary resolutions without retraining
 
-### 2. Temporal Incoherence  
+### 2. Temporal Incoherence
 
 **Solution**: Geometric State Space provides natural temporal smoothing through continuous dynamics
 
@@ -315,7 +315,7 @@ These mechanisms go beyond simple combinations of existing ideas by introducing 
 **Accuracy Targets**:
 
 - ImageNet Classification: 86%+ Top-1
-- COCO Detection: 52+ AP  
+- COCO Detection: 52+ AP
 - Kinetics-400 Action: 82+ Top-1
 - Long Video Understanding: 90%+ temporal consistency
 
