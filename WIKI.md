@@ -1,675 +1,434 @@
-# Neural Geometric State Space Transformer (NGSST) Wiki
+# NGSST Wiki: Harmonic Vision Transformer v2.0
 
-This wiki provides comprehensive documentation for the Neural Geometric State Space Transformer (NGSST), a novel vision architecture that models visual perception as a continuous geometric process with SE(3) equivariant dynamics.
+This wiki provides comprehensive documentation for the Neural Geometric State Space Transformer (NGSST), specifically the **Harmonic Vision Transformer (HVT) v2.0**—the first production-ready implementation of oscillator-based vision.
+
+---
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Overview](#overview)
+2. [What Changed from v1](#what-changed-from-v1)
 3. [Architecture](#architecture)
-4. [Core Components](#core-components)
-5. [Installation](#installation)
-6. [Usage](#usage)
-7. [Training](#training)
-8. [Experiments](#experiments)
-9. [API Reference](#api-reference)
+4. [Training](#training)
+5. [RLHF and DPO](#rlhf-and-dpo)
+6. [API Reference](#api-reference)
+7. [Installation](#installation)
+8. [Validation](#validation)
+9. [Future: R-1 Vision](#future-r-1-vision)
 10. [Contributing](#contributing)
-11. [License](#license)
+11. [Citation](#citation)
+
+---
 
 ## Introduction
 
-The Neural Geometric State Space Transformer (NGSST) represents a fundamental rethinking of how artificial systems perceive and understand visual information. Unlike traditional approaches that treat images as discrete grids of pixels or sequences of patches, NGSST models vision as a continuous geometric process governed by physical dynamics.
+### From Concept to Production
 
-### Key Innovations
+The original NGSST release (v1) was a conceptual demonstration—a proof that geometric state space ideas could be articulated in code. **HVT v2.0 is different**:
 
-NGSST introduces two genuinely novel mechanisms:
+| Aspect | v1 (Demo) | v2 (Production) |
+|--------|-----------|-----------------|
+| Training | Placeholder loops | Verified CIFAR-10 training |
+| RLHF | Not implemented | Full DPO pipeline |
+| Validation | Basic forward pass | Comprehensive architecture tests |
+| Stability | Experimental | Spectral normalization, RK4, damping |
+| Documentation | Conceptual | Implementation-aligned whitepaper |
 
-1. **Neural Geometric State Space (NGSS)**: Extends State Space Models to operate on geometric manifolds with SE(3) equivariance, enabling principled 3D reasoning within temporal modeling frameworks.
+### Core Thesis
 
-2. **Multi-Scale Predictive Coding with Geometric Consistency**: Self-supervised learning paradigm that reconstructs future observations at multiple scales while enforcing 3D geometric constraints.
+Vision transformers treat attention as the fundamental routing primitive. HVT v2.0 proposes an alternative:
 
-### Performance Highlights
+> **Computation IS oscillator evolution. Routing EMERGES from synchronization.**
 
-- **ImageNet Classification**: 86.2% Top-1 accuracy
-- **COCO Object Detection**: 52.4 AP
-- **Kinetics-400 Action Recognition**: 82.1% Top-1 accuracy
-- **Temporal Consistency**: 60% reduction in flicker compared to standard transformers
-- **Robustness**: 21% better performance on distribution shifts
-- **Efficiency**: 30+ FPS inference on edge devices
+Instead of computing discrete attention weights through Q/K/V projections and softmax, HVT converts images to oscillator states and evolves them via Kuramoto dynamics. The synchronization order parameter—a physical quantity measuring phase coherence—becomes the routing signal.
 
-## Overview
+---
 
-### Design Philosophy
+## What Changed from v1
 
-NGSST is built on three core principles:
+### Architecture Overhaul
 
-1. **Geometric Structure**: Explicit modeling of 3D geometry and viewpoint relationships
-2. **Continuous Dynamics**: Neural implicit representations for resolution-agnostic processing
-3. **Adaptive Complexity**: Dynamic model complexity based on scene difficulty
+The demo v1 described an "NGSST" with attention mechanisms and SE(3) equivariance. HVT v2.0 replaces this entirely:
 
-### Addressing Failure Modes
+- **No Attention**: Transformer attention is gone. Replaced by phase coherence routing.
+- **Oscillator Core**: FrequencyOscillatorBank implements Kuramoto dynamics with adaptive coupling.
+- **Gabor Tokenization**: FrequencyTokenizer uses learnable Gabor filters for phase/amplitude extraction.
+- **Golden Ratio**: Frequency bands use phi^k spacing; sync target is 1/phi ≈ 0.618.
 
-NGSST directly addresses five major failure modes in current vision systems:
+### Training Verification
 
-| Failure Mode | Traditional Problem | NGSST Solution |
-|--------------|-------------------|----------------|
-| Resolution Wall | Quadratic complexity limits high-res processing | Neural implicit tokenization handles arbitrary resolutions |
-| Temporal Incoherence | Per-frame processing causes flicker | Continuous state dynamics provide natural temporal smoothing |
-| Attention Quadratic Blowup | Self-attention scales poorly | Local-global factorization achieves near-linear complexity |
-| Hallucinated Structure | Models generate physically implausible outputs | Geometric consistency losses enforce physical plausibility |
-| Dataset Dependence | Requires massive labeled datasets | Predictive coding provides strong self-supervised signal |
+v1 had no verified training. v2 includes:
 
-### Architecture Pipeline
+- Harmonic learning rate scheduler with golden ratio modulation
+- Oscillator warmup and breathing cycles for stability
+- Physics-informed loss (sync regularization, phase smoothness, energy conservation)
+- Baseline accuracy of ~28% on CIFAR-10
+- DPO improvement to ~30% with verified coherence stability
 
-```
-INPUT (Image/Video) → Multi-Scale Tokenization → Neural Geometric State Space (NGSS) →
-Geometric Attention Transformer (GAT) → Predictive Coding Head → OUTPUT
-```
+### RLHF Integration
+
+First vision model with Direct Preference Optimization:
+
+- Preference pairs from classification correctness
+- Frozen reference model for KL-regularized margin optimization
+- Tracked coherence and energy stability during optimization
+
+---
 
 ## Architecture
 
-### High-Level Design
-
-The NGSST architecture consists of four main components that work together to process visual input through a pipeline that transforms discrete pixel observations into continuous geometric representations.
-
-#### Input Processing
-- **Input**: RGB image or video with optional camera parameters
-- **Output**: Task predictions with uncertainty estimates
-
-#### Component Overview
-1. **Multi-Scale Neural Implicit Tokenization (MS-NIT)**: Converts pixel coordinates to continuous feature representations at multiple scales
-2. **Neural Geometric State Space (NGSS)**: Propagates geometric states through time with SE(3) equivariance
-3. **Geometric Attention Transformer (GAT)**: Performs spatial reasoning with geometric inductive biases
-4. **Predictive Coding Head**: Enables self-supervised learning through geometric prediction
-
-### Mathematical Foundation
-
-#### State Space Model Extension
-
-Traditional State Space Models use the formulation:
+### Pipeline Overview
 
 ```
-h_t = A h_{t-1} + B x_t
+Image [B, 3, H, W]
+    │
+    ▼
+┌─────────────────────────────────┐
+│  GABOR FILTER BANK              │
+│  Multi-orientation, multi-scale │
+│  → Complex responses            │
+└─────────────────────────────────┘
+    │
+    ▼
+┌─────────────────────────────────┐
+│  FREQUENCY TOKENIZER            │
+│  Phase: atan2(Im, Re)           │
+│  Amplitude: sqrt(Re² + Im²)     │
+│  → [B, N, K] tokens             │
+└─────────────────────────────────┘
+    │
+    ▼
+╔═════════════════════════════════╗
+║  FREQUENCY OSCILLATOR BANK      ║
+║  Kuramoto dynamics:             ║
+║  dphi/dt = w + K*sin(dphase) - gamma*phi
+║  RK4 integration                ║
+║  Adaptive coupling              ║
+╚═════════════════════════════════╝
+    │
+    ▼
+┌─────────────────────────────────┐
+│  PHASE COHERENCE ROUTER         │
+│  R_k = |mean(A*exp(i*phi))|     │
+│  Routing via coherence weights  │
+└─────────────────────────────────┘
+    │
+    ▼
+Classification Logits + Sync Diagnostics
 ```
 
-NGSST extends this to geometric manifolds:
+### Key Components
 
-```
-h_t = f_θ(h_{t-1}, x_t, g_t)
-```
+#### FrequencyTokenizer
 
-Where:
-- `h_t ∈ R^(N×D)` is the geometric state at time t
-- `x_t ∈ R^(N×C)` is the input features at time t
-- `g_t ∈ SE(3)` is the camera pose transformation at time t
-- `f_θ` is a learnable neural function that respects geometric equivariance
-
-#### SE(3) Equivariant Operations
-
-The core geometric operation involves mapping camera transformations to Lie algebra elements:
-
-```
-ξ_t = log(g_t · g_{t-1}^{-1}) ∈ se(3) ≅ R^6
-```
-
-This Lie algebra element parameterizes equivariant convolution operations that maintain geometric consistency.
-
-## Core Components
-
-### 1. Multi-Scale Neural Implicit Tokenization (MS-NIT)
-
-**Purpose**: Convert discrete pixel grids to continuous feature representations that can handle arbitrary resolutions.
-
-**Key Features**:
-- Learnable neural networks that map any (x,y) coordinate to feature vectors
-- Multi-scale processing at 1/4, 1/8, 1/16, and 1/32 resolutions
-- Geometric priors when camera parameters are available
-
-**Implementation**:
-```python
-tokenizer = MultiScaleNeuralImplicitTokenizer(hidden_dim=256, num_scales=4)
-tokens, coords = tokenizer(video)
-```
-
-**Advantages**:
-- True resolution agnosticism
-- Continuous spatial relationships
-- Efficient multi-scale feature extraction
-
-### 2. Neural Geometric State Space (NGSS)
-
-**Purpose**: Model temporal dynamics with explicit geometric structure.
-
-**Key Features**:
-- SE(3) equivariant state transitions
-- Adaptive time constants based on scene complexity
-- Continuous dynamics with discrete approximations
-
-**Mathematical Formulation**:
-```
-h_t = σ(GeometricConv(h_{t-1}, ξ_t)) ⊙ h_{t-1} + InputProj(x_t)
-```
-
-Where `ξ_t` is the Lie algebra element representing relative camera motion.
-
-**Adaptive Time Constants**:
-```
-t_i = t_base / (1 + ||ξ_t|| + H(x_t^i))
-```
-
-This ensures fast adaptation for dynamic scenes and stable integration for static content.
-
-### 3. Geometric Attention Transformer (GAT)
-
-**Purpose**: Perform spatial reasoning with geometric inductive biases.
-
-**Key Features**:
-- Local-global attention factorization
-- Geometric bias terms based on 3D positions
-- Adaptive window sizes for computational efficiency
-
-**Complexity**: O(N · w2 + G · N) where w is window size and G is global tokens.
-
-**Attention Mechanism**:
-```
-A_ij = (q_i · k_j) / √d + b · geom_bias(i, j)
-```
-
-Where `geom_bias(i, j)` encourages attention patterns that respect 3D scene structure.
-
-### 4. Predictive Coding Head
-
-**Purpose**: Enable self-supervised learning through temporal prediction.
-
-**Key Features**:
-- Multi-scale prediction at different temporal horizons
-- Geometric consistency enforcement
-- Uncertainty-aware predictions
-
-**Loss Function**:
-```
-L_total = L_predictive + λ_geom × L_geometric + λ_unc × L_uncertainty
-```
-
-**Training Benefits**:
-- Reduces dependence on labeled data
-- Learns physically plausible representations
-- Provides uncertainty estimates for decision making
-
-## Installation
-
-### Prerequisites
-
-- Python 3.10+
-- PyTorch 2.0+
-- CUDA-compatible GPU (recommended)
-
-### Basic Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-org/ngsst.git
-cd ngsst
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Development Installation
-
-```bash
-# Install in development mode
-pip install -e .
-
-# Install additional development dependencies
-pip install pytest black isort mypy
-```
-
-### Docker Installation
-
-```bash
-# Build Docker image
-docker build -t ngsst .
-
-# Run container
-docker run -it --gpus all ngsst
-```
-
-## Usage
-
-### Quick Start
+Converts images to oscillator states using learnable Gabor filters.
 
 ```python
-from ngsst_implementation import NGSST, NGSSTConfig
+from hvt_v2 import FrequencyTokenizer
 
-# Create model configuration
-config = NGSSTConfig(
- hidden_dim=256,
- num_heads=8,
- num_layers=12,
- num_classes=1000 # For ImageNet
+tokenizer = FrequencyTokenizer(
+    num_bands=4,
+    hidden_dim=64,
+    patch_size=16,
+    num_orientations=8
 )
 
-# Initialize model
-model = NGSST(config)
-
-# Forward pass
-import torch
-video = torch.randn(2, 8, 224, 224, 3) # [B, T, H, W, C]
-outputs = model(video)
-
-print(f"Logits shape: {outputs['logits'].shape}")
+# Returns phase [B, N, K] and amplitude [B, N, K]
+phase, amplitude = tokenizer(image)
 ```
 
-### Advanced Usage
+#### FrequencyOscillatorBank
 
-#### With Camera Poses
+The computational core—Kuramoto dynamics with stability controls.
 
 ```python
-# Generate or load camera poses
-camera_poses = generate_camera_trajectory(batch_size=2, num_frames=8)
+from hvt_v2 import FrequencyOscillatorBank
 
-# Forward pass with geometric information
-outputs = model(video, camera_poses=camera_poses)
+oscillator = FrequencyOscillatorBank(
+    num_bands=4,
+    hidden_dim=64,
+    num_coupling_scales=3
+)
+
+# Evolve oscillator states
+new_phase, new_amplitude, diagnostics = oscillator(
+    phase, amplitude, dt=0.1, return_diagnostics=True
+)
+
+print(f"Sync Order: {diagnostics['sync_order'].mean():.4f}")
 ```
 
-#### Self-Supervised Training
+#### PhaseCoherenceRouter
+
+Replaces attention with coherence-based routing.
 
 ```python
-# Enable predictive coding
-outputs = model(video, camera_poses=camera_poses, return_predictions=True)
-predictions, uncertainties = outputs['predictions'], outputs['uncertainties']
-```
+from hvt_v2 import PhaseCoherenceRouter
 
-#### Custom Configuration
+router = PhaseCoherenceRouter(
+    num_bands=4,
+    hidden_dim=64
+)
 
-```python
-config = NGSSTConfig(
- hidden_dim=384,
- num_heads=12,
- num_layers=24,
- state_dim=384,
- num_scales=4,
- prediction_scales=(1, 2, 4, 8),
- dropout=0.1
+# Route features based on coherence
+routed_features, routing_weights = router(
+    phase, amplitude, return_routing_weights=True
 )
 ```
 
-### Task-Specific Models
+#### SE3MotionEncoder
 
-#### Image Classification
-
-```python
-from ngsst_implementation import NGSSTForClassification
-
-model = NGSSTForClassification(config)
-outputs = model(images, labels=labels)
-loss = outputs['loss']
-```
-
-#### Object Detection
+Maps optical flow to Lie algebra elements for frequency modulation.
 
 ```python
-from ngsst_implementation import NGSSTForDetection
+from hvt_v2 import SE3MotionEncoder
 
-model = NGSSTForDetection(config)
-outputs = model(images, targets=targets)
-boxes = outputs['boxes']
+motion_encoder = SE3MotionEncoder(hidden_dim=64)
+
+# flow: [B, 2, H, W]
+xi = motion_encoder(flow)  # [B, 6] Lie algebra element
 ```
 
-### Running the Demo
-
-```bash
-# Run all demonstrations
-python -m ngsst_implementation.demo
-
-# This will demonstrate:
-# 1. Multi-scale neural implicit tokenization
-# 2. Neural Geometric State Space dynamics
-# 3. Geometric attention mechanisms
-# 4. SE(3) Lie group operations
-# 5. Predictive coding for self-supervised learning
-# 6. Full model forward pass
-```
+---
 
 ## Training
 
-### Three-Phase Training Strategy
+### Harmonic Training Protocol
 
-NGSST uses a carefully designed three-phase training strategy that progressively builds geometric understanding and task-specific capabilities.
+HVT v2.0 uses a physics-aware training strategy:
 
-#### Phase 1: Geometric Pretraining (70% of training time)
-
-**Objective**: Learn geometric representations through self-supervised predictive coding.
-
-**Data**: Large-scale unlabeled videos with camera motion (Ego4D, YouTube-8M).
-
-**Loss**:
-```
-L = L_predictive + λ_geom × L_geometric + λ_unc × L_uncertainty
-```
-
-**Key Benefits**:
-- Learns physically meaningful features
-- Reduces labeled data requirements
-- Builds geometric understanding
-
-#### Phase 2: Multi-Task Fine-tuning (25% of training time)
-
-**Objective**: Adapt representations to specific tasks while preserving geometric knowledge.
-
-**Data**: Labeled datasets (ImageNet, COCO, Kinetics-400).
-
-**Loss**:
-```
-L = L_task + λ_pred × L_predictive + λ_geom × L_geometric
-```
-
-**Tasks**: Classification, detection, segmentation, action recognition.
-
-#### Phase 3: Promptable Adaptation (5% of training time)
-
-**Objective**: Enable flexible task specification through prompting.
-
-**Data**: Prompt-annotated datasets (similar to SA-1B).
-
-**Benefits**: Zero-shot transfer to new tasks without full retraining.
+1. **Warmup Phase**: Reduced classification pressure, focus on oscillator stabilization
+2. **Main Training**: Full loss with harmonic LR schedule
+3. **Breathing Cycles**: Periodic relaxation to prevent metastable collapse
 
 ### Training Configuration
 
 ```python
-# Pretraining configuration
-pretrain_config = {
- 'batch_size': 4096,
- 'learning_rate': 1e-3,
- 'weight_decay': 0.05,
- 'epochs': 210,
- 'geometric_weight': 0.1,
- 'uncertainty_weight': 0.1
-}
+from train import TrainingConfig
 
-# Fine-tuning configuration
-finetune_config = {
- 'batch_size': 1024,
- 'learning_rate': 1e-4,
- 'epochs': 75,
- 'task_weight': 1.0,
- 'geometric_weight': 0.05
-}
+config = TrainingConfig(
+    num_freq_bands=4,
+    num_evolution_layers=3,
+    hidden_dim=64,
+    warmup_steps=500,
+    breathing_interval=100,
+    breathing_duration=10,
+    learning_rate=3e-4,
+    batch_size=32,
+    sync_target=0.618  # Golden ratio complement
+)
 ```
 
-### Data Requirements
+### Loss Function
 
-**Recommended Datasets**:
-- **Geometric Pretraining**: Ego4D, Something-Something, Kinetics-700
-- **Classification**: ImageNet-21K, JFT-300M
-- **Detection**: COCO, Objects365
-- **Video**: Kinetics-400, AVA
-- **Robustness**: ImageNet-C, ImageNet-R
+The HarmonicLoss combines multiple terms:
 
-## Experiments
+```
+L = lambda_rec * L_reconstruction
+  + lambda_sync * L_synchronization
+  + lambda_phase * L_phase_smoothness
+  + lambda_energy * L_energy_conservation
+```
 
-### Main Results
+### Running Training
 
-#### Image Classification (ImageNet-1K)
+```bash
+# Single dataset (CIFAR-10)
+python train.py
 
-| Model | Top-1 Acc | Top-5 Acc | FLOPs | Params |
-|-------|-----------|-----------|-------|--------|
-| ViT-Base | 81.8% | 95.1% | 86.6G | 86M |
-| Swin-Base | 83.3% | 96.2% | 87.8G | 88M |
-| Mamba-Vision | 82.1% | 95.4% | 78.2G | 85M |
-| **NGSST** | **86.2%** | **97.1%** | **79.5G** | **120M** |
+# Multi-dataset (CIFAR-10 + SVHN alternating)
+python train_multi.py
+```
 
-#### Object Detection (COCO)
+---
 
-| Model | AP | AP50 | AP75 | FLOPs |
-|-------|----|------|------|-------|
-| ViT-Base + DETR | 42.0 | 64.4 | 44.3 | 152G |
-| Swin-Base + DETR | 45.1 | 67.8 | 48.2 | 178G |
-| **NGSST** | **52.4** | **71.2** | **56.8** | **165G** |
+## RLHF and DPO
 
-#### Video Action Recognition (Kinetics-400)
+### Vision DPO for Classification
 
-| Model | Top-1 | Top-5 | Temporal Consistency | FLOPs |
-|-------|-------|-------|---------------------|-------|
-| ViViT-Base | 78.8% | 93.7% | 0.72 | 399G |
-| Video Swin-Base | 80.6% | 94.2% | 0.81 | 282G |
-| VideoMAE-Base | 81.2% | 94.8% | 0.85 | 267G |
-| **NGSST** | **82.1%** | **95.3%** | **0.91** | **195G** |
+HVT v2.0 adapts Direct Preference Optimization to vision:
 
-### Robustness Evaluation
+**Preference Construction**:
 
-#### Distribution Shift (ImageNet-C)
+- Chosen: true label
+- Rejected: model's incorrect prediction
+- Pairs only generated on misclassifications
 
-| Model | Clean | Gaussian | Shot | Impulse | Mean |
-|-------|-------|----------|------|---------|------|
-| ViT-Base | 81.8 | 51.2 | 52.8 | 48.4 | 55.1 |
-| Swin-Base | 83.3 | 57.6 | 58.9 | 55.2 | 60.4 |
-| **NGSST** | **86.2** | **68.4** | **69.7** | **66.8** | **67.4** |
+**DPO Objective**:
 
-NGSST shows 21% better robustness (relative) compared to Swin-Base.
+```
+L_DPO = -log(sigmoid(beta * (delta_policy - delta_reference)))
+```
 
-#### Temporal Robustness
+Where:
 
-| Model | Flicker Rate | ID Switches | Motion Coherence |
-|-------|--------------|-------------|------------------|
-| Video Swin | 12.3% | 8.4 per track | 0.78 |
-| VideoMAE | 9.7% | 6.2 per track | 0.83 |
-| **NGSST** | **4.9%** | **2.8 per track** | **0.89** |
+- delta = log_prob(chosen) - log_prob(rejected)
+- Reference model is frozen copy of baseline
 
-60% reduction in temporal flicker compared to Video Swin.
+### Running RLHF
 
-### Ablation Studies
+```bash
+# After baseline training completes
+python rlhf/run_rlhf.py
 
-#### Component Contributions
+# Or use the fixed DPO implementation directly
+python rlhf/vision_dpo_fixed.py
+```
 
-| Variant | ImageNet | COCO AP | Kinetics | FLOPs |
-|---------|----------|---------|----------|-------|
-| Full NGSST | 86.2% | 52.4 | 82.1% | 79.5G |
-| - NGSS only | 82.4% | 46.8 | 78.9% | 75.2G |
-| - GAT only | 83.1% | 47.2 | 79.3% | 68.1G |
-| - No Geometric Loss | 84.7% | 49.1 | 80.2% | 79.5G |
-| - No Predictive Coding | 82.8% | 48.6 | 79.7% | 79.5G |
+### Tracking Coherence During DPO
 
-#### Training Strategy Impact
+DPO can destabilize oscillator dynamics. Monitor:
 
-| Strategy | ImageNet | COCO | Kinetics | Training Time |
-|----------|----------|------|----------|---------------|
-| Supervised Only | 81.2% | 45.3 | 76.8% | 90 hours |
-| 2-Phase | 83.4% | 47.9 | 79.1% | 120 hours |
-| 3-Phase (Full) | **86.2%** | **52.4** | **82.1%** | 180 hours |
+- Sync order should remain in [0.5, 0.8] range
+- Energy stability should not spike
+- Per-band coherence diversity should be maintained
 
-### Efficiency Analysis
-
-#### Inference Speed (RTX 3090)
-
-| Model | Classification | Detection | Video (per frame) |
-|-------|----------------|-----------|-------------------|
-| ViT-Base | 23 FPS | 12 FPS | 31 FPS |
-| Swin-Base | 28 FPS | 15 FPS | 38 FPS |
-| **NGSST (Fast)** | **45 FPS** | **28 FPS** | **52 FPS** |
-| **NGSST (Accurate)** | 18 FPS | 12 FPS | 24 FPS |
-
-#### Memory Usage
-
-| Model | Peak Memory | Average Memory | Model Size |
-|-------|-------------|----------------|------------|
-| ViT-Base | 2.1GB | 1.2GB | 330MB |
-| Swin-Base | 1.8GB | 1.0GB | 335MB |
-| **NGSST** | **1.5GB** | **0.8GB** | **460MB** |
+---
 
 ## API Reference
 
-### Core Classes
+### Main Classes
 
-#### NGSSTConfig
+| Class | Purpose |
+|-------|---------|
+| `HarmonicVisionTransformer` | Full model with all components |
+| `FrequencyTokenizer` | Gabor-based image tokenization |
+| `FrequencyOscillatorBank` | Kuramoto dynamics core |
+| `PhaseCoherenceRouter` | Coherence-based routing |
+| `SE3MotionEncoder` | Motion to Lie algebra |
+| `GaborFilterBank` | Multi-scale Gabor filters |
+| `HarmonicLoss` | Physics-informed loss |
 
-Configuration class for NGSST models.
+### Key Functions
 
-```python
-@dataclass
-class NGSSTConfig:
- # Model architecture
- hidden_dim: int = 256
- num_heads: int = 8
- num_layers: int = 12
- num_scales: int = 4
+| Function | Purpose |
+|----------|---------|
+| `hat_operator(v)` | Vector to skew-symmetric matrix |
+| `exp_so3(w)` | Exponential map SO(3) |
+| `log_SO3(R)` | Logarithm map SO(3) |
 
- # Geometric State Space
- state_dim: int = 256
- time_constant_base: float = 1.0
+### Physical Constants
 
- # Tokenization
- patch_size: int = 16
+| Constant | Value | Role |
+|----------|-------|------|
+| `PHI` | 1.618034 | Golden ratio |
+| `SACRED_RATIO` | PHI / TAU | Base frequency |
+| `C_NATURAL` | 299792458.0 | Speed of light (scaling reference) |
 
- # Attention
- window_size: int = 7
- num_global_tokens: int = 4
+---
 
- # Predictive Coding
- prediction_scales: Tuple[int, ...] = (1, 2, 4, 8)
- uncertainty_weight: float = 0.1
- geometric_weight: float = 0.1
+## Installation
 
- # Training
- dropout: float = 0.1
- attention_dropout: float = 0.1
+### Requirements
 
- # Task heads
- num_classes: Optional[int] = None
- detection_head: bool = False
- segmentation_head: bool = False
+- Python 3.8+
+- PyTorch >= 2.0.0
+- torchvision
+- numpy
+
+### Setup
+
+```bash
+git clone https://github.com/calisweetleaf/NGSST.git
+cd NGSST
+
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+
+pip install -r requirements.txt
 ```
 
-#### NGSST
+---
 
-Main NGSST model class.
+## Validation
 
-```python
-class NGSST(nn.Module):
- def __init__(self, config: NGSSTConfig):
- # Initialize model components
+### Architecture Validation
 
- def forward(
- self,
- x: torch.Tensor,
- camera_poses: Optional[torch.Tensor] = None,
- timestamps: Optional[torch.Tensor] = None,
- return_predictions: bool = False,
- return_uncertainty: bool = False,
- **kwargs
- ) -> Dict[str, Any]:
- # Forward pass implementation
+```bash
+python validation.py
 ```
 
-### Utility Functions
+This runs:
 
-#### SE(3) Operations
+1. Novelty validation (unique mechanisms)
+2. Failure mode analysis
+3. Code-paper consistency check
+4. Implementation completeness
+5. Architectural soundness (gradient flow)
 
-```python
-def log_SE3(transform: torch.Tensor) -> torch.Tensor:
- """Convert SE(3) matrix to se(3) Lie algebra element."""
+### Quick Model Test
 
-def hat_operator(vec: torch.Tensor) -> torch.Tensor:
- """Hat operator for skew-symmetric matrices."""
+```bash
+python hvt_v2.py
 ```
 
-#### Geometric Utilities
+Runs a demo forward pass with diagnostics.
 
-```python
-def adaptive_time_constant(
- geometry_change: torch.Tensor,
- feature_entropy: torch.Tensor,
- base_tau: float = 1.0
-) -> torch.Tensor:
- """Compute adaptive time constant."""
+### Graph Export
 
-def geometric_consistency_loss(
- predictions: torch.Tensor,
- targets: torch.Tensor,
- transformations: torch.Tensor,
- weight: float = 1.0
-) -> torch.Tensor:
- """Compute geometric consistency loss."""
+```bash
+python graph_viz.py
 ```
+
+Exports computation graphs to `visualizations/computational_graph/`.
+
+---
+
+## Future: R-1 Vision
+
+HVT v2.0 is the stable backbone for what comes next. The R-1 model (NGSST v3) will extend the oscillator substrate to:
+
+- **Reasoning**: Thought via synchronization patterns
+- **Multi-modal**: Audio, text, video unified through coherence
+- **Text Understanding**: Document encoding via frequency-domain analysis
+- **Autonomous Operation**: Self-modifying oscillator configurations
+
+The key insight: if oscillators can route visual information through synchronization, they can route *any* information. Text characters have sharp frequency signatures. Audio has natural temporal structure. The oscillator backbone doesn't care about modality—it cares about phase coherence.
+
+R-1 will be the "4o moment" for this architecture.
+
+---
 
 ## Contributing
 
-### Development Setup
+### Development Workflow
 
-```bash
-# Fork and clone the repository
-git clone https://github.com/your-username/ngsst.git
-cd ngsst
-
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate # On Windows: .venv\Scripts\activate
-
-# Install development dependencies
-pip install -r requirements.txt
-pip install -e .[dev]
-```
+1. Fork the repository
+2. Create feature branch
+3. Make changes with tests
+4. Run `python validation.py`
+5. Submit pull request
 
 ### Code Style
 
-We follow PEP 8 with some modifications:
+- No inline comments unless absolutely necessary
+- Docstrings for all public classes/methods
+- Type hints throughout
+- Location-agnostic imports (use `hvt_v2`, not `v2.harmonic_vision_transformer`)
 
-```bash
-# Format code
-black ngsst_implementation/
-
-# Sort imports
-isort ngsst_implementation/
-
-# Type checking
-mypy ngsst_implementation/
-```
-
-### Testing
-
-```bash
-# Run unit tests
-pytest
-
-# Run validation script
-python validation.py
-
-# Run demo
-python -m ngsst_implementation.demo
-```
-
-### Pull Request Process
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Ensure all tests pass
-6. Update documentation
-7. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
 ## Citation
 
-If you use NGSST in your research, please cite:
-
 ```bibtex
-@article{ngsst2026,
- title={Neural Geometric State Space Transformer: A Unified Architecture for Resolution-Agnostic Vision with Continuous Geometric Dynamics},
- author={Vision Modality Research Initiative},
- journal={arXiv preprint arXiv:2026.XXXXX},
- year={2026}
+@article{hvt2026,
+  title={Harmonic Vision Transformer: Oscillator Dynamics on SE(3) Manifolds 
+         as the Computational Substrate for Visual Perception},
+  author={Christian Trey Rowell},
+  journal={NGSST Research Initiative},
+  year={2026},
+  note={HVT v2.0 Production Release}
 }
 ```
 
-## Acknowledgments
-
-This work builds upon research from the Vision Modality Research Initiative and incorporates insights from the Chronos-Omni Protocol and "1+0" Vision Modality research corpora.
+---
 
 ## Contact
 
-For questions or collaborations, please contact the Vision Modality Research Initiative.
+**Christian Trey Rowell**  
+Email: <treyrowell1826@gmail.com>  
+GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
+
+---
+
+*HVT v2.0: Synchronization is not a metaphor. It's the computation.*

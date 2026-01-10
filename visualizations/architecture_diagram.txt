@@ -1,0 +1,75 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    HARMONIC VISION TRANSFORMER v2.0                           ║
+║                 Oscillator Dynamics on SE(3) Manifolds                        ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║   INPUT: [B, 3, H, W]                                                         ║
+║      │                                                                        ║
+║      ▼                                                                        ║
+║   ┌─────────────────────────────────────────────────────────────────────┐     ║
+║   │  GABOR FILTER BANK                                                  │     ║
+║   │  ├─ Orientations: θ ∈ [0, π) × num_orientations                     │     ║
+║   │  ├─ Frequencies: f = f₀ × φˢ  (golden ratio scaling)                │     ║
+║   │  └─ Output: Complex responses → Phase + Amplitude                   │     ║
+║   └─────────────────────────────────────────────────────────────────────┘     ║
+║      │                                                                        ║
+║      ▼                                                                        ║
+║   ┌─────────────────────────────────────────────────────────────────────┐     ║    
+║   │  FREQUENCY TOKENIZER                                                │     ║
+║   │  ├─ Patches: H/patch × W/patch = N tokens                           │     ║
+║   │  ├─ Phase tokens: [B, N, num_bands]                                 │     ║
+║   │  └─ Amplitude tokens: [B, N, num_bands]                             │     ║
+║   └─────────────────────────────────────────────────────────────────────┘     ║
+║      │                                                                        ║
+║      ▼                                                                        ║
+║   ╔═════════════════════════════════════════════════════════════════════╗     ║
+║   ║  FREQUENCY OSCILLATOR BANK (× num_evolution_layers)     [THE CORE]  ║     ║
+║   ║  ╔═══════════════════════════════════════════════════════════════╗  ║     ║
+║   ║  ║  Kuramoto Dynamics:                                           ║  ║     ║
+║   ║  ║                                                               ║  ║    ║
+║   ║  ║    dφᵢ/dt = ωᵢ + Σⱼ Kᵢⱼ sin(φⱼ - φᵢ) - γφᵢ                    ║  ║    ║
+║   ║  ║           ↑       ↑                    ↑                      ║  ║    ║
+║   ║  ║       natural  coupling             damping                   ║  ║    ║
+║   ║  ║       frequency force                                         ║  ║    ║
+║   ║  ╚═══════════════════════════════════════════════════════════════╝  ║    ║
+║   ║                                                                     ║    ║
+║   ║  Physical Constants (Learnable):                                    ║    ║
+║   ║  ├─ C_scaled ≈ 1.95  (speed of light → coupling strength)           ║    ║
+║   ║  ├─ G_scaled ≈ -0.47 (gravitational → long-range interactions)      ║    ║
+║   ║  └─ α_scaled ≈ 0.73  (fine structure → quantum coupling)            ║    ║
+║   ║                                                                     ║    ║
+║   ║  SE(3) Motion Modulation:                                           ║    ║
+║   ║  └─ ωᵢ = ω₀ × (1 + α||ξ||)  where ξ ∈ se(3)                         ║    ║
+║   ║                                                                     ║    ║
+║   ║  Sync Order (Kuramoto Order Parameter):                             ║    ║
+║   ║  └─ R(t) = |⟨e^(iφ)⟩| ∈ [0, 1]   (target: φ ≈ 0.618)                 ║    ║
+║   ╚═════════════════════════════════════════════════════════════════════╝     ║
+║      │                                                                        ║
+║      ▼                                                                        ║
+║   ┌─────────────────────────────────────────────────────────────────────┐     ║
+║   │  PHASE COHERENCE ROUTER  ⟵ Replaces Attention!                     │     ║
+║   │  ├─ Phase Locking Value: PLVᵢⱼ = |⟨e^(i(φᵢ-φⱼ))⟩|                   │      ║
+║   │  ├─ Routing: softmax(PLV × amplitude)                              │      ║
+║   │  └─ NO Q/K/V projections - routing emerges from dynamics           │      ║
+║   └─────────────────────────────────────────────────────────────────────┘     ║
+║      │                                                                        ║
+║      ▼                                                                        ║
+║   ┌─────────────────────────────────────────────────────────────────────┐     ║
+║   │  HARMONIC DECODER                                                   │     ║
+║   │  ├─ Oscillator states → Feature maps                                │     ║
+║   │  ├─ Multi-scale upsampling (×2, ×2, ×2, ×2)                         │     ║
+║   │  └─ Final conv → RGB output                                         │     ║
+║   └─────────────────────────────────────────────────────────────────────┘     ║
+║      │                                                                        ║
+║      ▼                                                                        ║
+║   OUTPUTS:                                                                    ║
+║   ├─ Reconstruction: [B, 3, H, W]                                             ║
+║   ├─ Logits: [B, num_classes]                                                 ║
+║   └─ Sync Order: [B, num_layers, num_bands]                                  ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+KEY INSIGHT: This is NOT "attention + oscillators"
+             The computation IS oscillator evolution.
+             Routing EMERGES from synchronization, not learned weights.
