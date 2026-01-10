@@ -22,6 +22,16 @@
 > **Disclosure**: This repository now contains the first production-ready NGSST implementation. The previous release (v1) was a conceptual demo to prepare the community. **HVT v2.0 is the real, trainable vision backbone**—with verified training loops, RLHF/DPO support, and oscillator dynamics that actually work. There are still edge cases, but the core architecture was pushed according to the original timeline. I released the ngsst demo v1 to prepare the community and tease what was to come. Well, it is now here with the HVT: Harmonic Vision Transformer, a NGSST implementation that consolidates the demonstration into one single python file containing the entire model. We have ran internal benchmarking, training, rlhf, and have produced many visuals as confirmation of the new architecture potential Viability. The next release will come soon with more complex/new-methods for training, and most importantly a 6 stage RLHF pipeline using PPO with GAE, DPO, a direct implementation of the GRPO Deepseek method, SimPO reference free, KTO (non pair data), finally last stage IPO. This also includes extra features such as token
 ---
 
+## Introduction to the Neural Geometric State Space Transformer Architecture and current model framework, Harmonic Vision Transformer
+I introduce the Harmonic Vision Transformer (HVT), an attention-free vision architecture that treats visual inference as the evolution of coupled oscillators conditioned by geometric motion. Instead of computing token-to-token affinities through learned softmax attention, HVT converts images into oscillator states (phase and amplitude) and performs inference via a Kuramoto-style dynamical system whose synchronization order parameter is the primary routing signal. The computational core is a multi-band oscillator bank with golden-ratio-spaced natural frequencies, adaptive coupling, damping, and numerically stable integration. Motion is not a separate pre-processing step; it is a control input. An SE(3) motion encoder maps optical flow into the Lie algebra \(\mathfrak{se}(3)\) and uses this signal to modulate oscillator frequencies, embedding geometric change directly into the dynamics. The model's training protocol is correspondingly harmonic: oscillator warmup phases and breathing cycles are used to stabilize dynamics before increasing classification pressure. HVT v2.0 also demonstrates that Direct Preference Optimization (DPO) can be adapted to classification by constructing preference pairs from correctness (chosen = true label, rejected = model error) and optimizing a frozen-reference margin objective.
+
+This document is the implementation-aligned whitepaper for HVT v2.0 and the non `r-1` upcoming branch. It presents the mathematical formalism, algorithmic design, training protocol, and RLHF pipeline mapped directly to the shipped code. We report empirical diagnostics that connect synchronization order to classification accuracy and show that DPO yields a measurable accuracy lift in the tracked CIFAR-10 run. The aim is not to claim state-of-the-art accuracy, but to establish a rigorous, reproducible architecture in which synchronization is not a visualization artifact but the primary computational primitive. This provides an alternative foundation for scalable visual reasoning that is continuous in time, physically interpretable, and naturally aligned with motion and temporal coherence in videos. 
+
+## Notes
+- Full Whitepaper will be published when time allows to prepare and finalize the tex document and ensuring the paper is in its best possible form for the hvt_v2.
+
+---
+
 ## What's New: HVT v2.0
 
 This is **not** an incremental update. HVT v2.0 represents the first stable, trainable NGSST model:
@@ -188,7 +198,7 @@ python hvt_v2.py
 ## Repository Structure
 
 ```
-ngsst-clean/
+ngsst/
 ├── hvt_v2.py              # Core HVT v2.0 implementation (THE MODEL)
 ├── train.py               # Single-dataset training loop
 ├── train_multi.py         # Multi-dataset training (CIFAR-10/SVHN)
@@ -209,8 +219,6 @@ ngsst-clean/
 │   ├── fig1_sync_evolution.png    # Synchronization over training
 │   └── ...                        # Additional training visualizations
 │
-├── NGSST-Whitepaper/      # Academic documentation
-│   └── output/whitepaper.md       # Full technical whitepaper
 │
 └── requirements.txt       # Dependencies
 ```
@@ -319,7 +327,10 @@ HVT initializes learnable parameters from scaled physical constants:
 ## Contact
 
 **Christian Trey Rowell**  
-Email: <treyrowell1826@gmail.com>  
+Email: [Gmail](treyrowell1826@gmail.com) 
+
+- <treyrowell1826@gmail.com>
+
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 
 DOI: [10.5281/zenodo.18194837](https://doi.org/10.5281/zenodo.18194037)  
