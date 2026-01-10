@@ -13,7 +13,7 @@
 [![Version](https://img.shields.io/badge/version-2.0-blue.svg)]()
 [![Training](https://img.shields.io/badge/training-VERIFIED-brightgreen.svg)]()
 [![RLHF](https://img.shields.io/badge/RLHF-DPO_ENABLED-orange.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![License](https://img.shields.io/badge/license-Somnus-red.svg)](/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18203893.svg)](https://doi.org/10.5281/zenodo.18203893)
 
 </div>
@@ -344,4 +344,4 @@ License Repository: [Somnus License and Dev Tools](https://github.com/calisweetl
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+Somnus Sovereign Anti-Exploitation Software License - See [LICENSE](LICENSE) for details.
