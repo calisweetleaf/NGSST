@@ -14,6 +14,7 @@
 [![Training](https://img.shields.io/badge/training-VERIFIED-brightgreen.svg)]()
 [![RLHF](https://img.shields.io/badge/RLHF-DPO_ENABLED-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18203893.svg)](https://doi.org/10.5281/zenodo.18203893)
 
 </div>
 
@@ -333,7 +334,7 @@ Email: [Gmail](treyrowell1826@gmail.com)
 
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 
-DOI: [10.5281/zenodo.18194837](https://doi.org/10.5281/zenodo.18194037)  
+DOI: [10.5281/zenodo.18203893](https://doi.org/10.5281/zenodo.18203893)  
 
 License Repository: [Somnus License and Dev Tools](https://github.com/calisweetleaf/somnus-license)
 
