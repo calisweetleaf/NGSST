@@ -19,7 +19,7 @@
 
 ---
 
-> **Disclosure**: This repository now contains the first production-ready NGSST implementation. The previous release (v1) was a conceptual demo to prepare the community. **HVT v2.0 is the real, trainable vision backbone**—with verified training loops, RLHF/DPO support, and oscillator dynamics that actually work. There are still edge cases, but the core architecture was pushed according to the original timeline. I released the ngsst demo v1 to prepare the community and tease what was to come. Well, it is now here with the HVT: Harmonic Vision Transformer, a NGSST implementation that consolidates the demonstration into one single python file containing the entire model. We have ran internal benchmarking, training, rlhf, and have produced many visuals as confirmation of the new architecture potential Viability. The next release will come soon with more complex/new-methods for training, and most importantly a 6 stage RLHF pipeline using PPO with GAE, DPO, a direct implementation of the GRPO Deepseek method, SimPO reference free, KTO (non pair data), finally last stage IPO. This also includes extra features such as token 
+> **Disclosure**: This repository now contains the first production-ready NGSST implementation. The previous release (v1) was a conceptual demo to prepare the community. **HVT v2.0 is the real, trainable vision backbone**—with verified training loops, RLHF/DPO support, and oscillator dynamics that actually work. There are still edge cases, but the core architecture was pushed according to the original timeline. I released the ngsst demo v1 to prepare the community and tease what was to come. Well, it is now here with the HVT: Harmonic Vision Transformer, a NGSST implementation that consolidates the demonstration into one single python file containing the entire model. We have ran internal benchmarking, training, rlhf, and have produced many visuals as confirmation of the new architecture potential Viability. The next release will come soon with more complex/new-methods for training, and most importantly a 6 stage RLHF pipeline using PPO with GAE, DPO, a direct implementation of the GRPO Deepseek method, SimPO reference free, KTO (non pair data), finally last stage IPO. This also includes extra features such as token
 ---
 
 ## What's New: HVT v2.0
@@ -322,7 +322,9 @@ HVT initializes learnable parameters from scaled physical constants:
 Email: <treyrowell1826@gmail.com>  
 GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 
----
+DOI: [10.5281/zenodo.18194837](https://doi.org/10.5281/zenodo.18194037)  
+
+License Repository: [Somnus License and Dev Tools](https://github.com/calisweetleaf/somnus-license)
 
 <p align="center">
   <em>HVT v2.0: The computation IS the physics. Synchronization IS the routing.</em>
