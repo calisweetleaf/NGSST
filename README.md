@@ -403,7 +403,7 @@ HVT initializes learnable parameters from scaled physical constants:
 @article{hvt2026,
   title={Harmonic Vision Transformer: Oscillator Dynamics on SE(3) Manifolds as the Computational Substrate for Visual Perception},
   author={Christian Trey Rowell},
-  journal={NGSST Research Initiative},
+  journal={},
   year={2026},
   note={First production release of NGSST v2.0}
 }
