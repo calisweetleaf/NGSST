@@ -1,5 +1,7 @@
 # NGSST Wiki: Harmonic Vision Transformer v2.0
 
+**Release: v1.0.1** | [DOI: 10.5281/zenodo.18203893](https://doi.org/10.5281/zenodo.18203893)
+
 This wiki provides comprehensive documentation for the Neural Geometric State Space Transformer (NGSST), specifically the **Harmonic Vision Transformer (HVT) v2.0**—the first production-ready implementation of oscillator-based vision.
 
 ---
@@ -10,13 +12,14 @@ This wiki provides comprehensive documentation for the Neural Geometric State Sp
 2. [What Changed from v1](#what-changed-from-v1)
 3. [Architecture](#architecture)
 4. [Training](#training)
-5. [RLHF and DPO](#rlhf-and-dpo)
-6. [API Reference](#api-reference)
-7. [Installation](#installation)
-8. [Validation](#validation)
-9. [Future: R-1 Vision](#future-r-1-vision)
-10. [Contributing](#contributing)
-11. [Citation](#citation)
+5. [New Training Pipeline](#new-training-pipeline)
+6. [RLHF and DPO](#rlhf-and-dpo)
+7. [API Reference](#api-reference)
+8. [Installation](#installation)
+9. [Validation](#validation)
+10. [Future: R-1 Vision](#future-r-1-vision)
+11. [Contributing](#contributing)
+12. [Citation](#citation)
 
 ---
 
@@ -62,8 +65,9 @@ v1 had no verified training. v2 includes:
 - Harmonic learning rate scheduler with golden ratio modulation
 - Oscillator warmup and breathing cycles for stability
 - Physics-informed loss (sync regularization, phase smoothness, energy conservation)
-- Baseline accuracy of ~28% on CIFAR-10
-- DPO improvement to ~30% with verified coherence stability
+- Baseline accuracy of 52.3% on CIFAR-10
+- Full pipeline improvement to 57.2% (+4.9% absolute)
+- Sync order reaching golden ratio target (0.618)
 
 ### RLHF Integration
 
@@ -242,6 +246,61 @@ python train_multi.py
 
 ---
 
+## New Training Pipeline
+
+**v1.0.1** introduces a unified training system in `run.py` with the full pipeline in `New-Training/code/`.
+
+### Unified Entry Point
+
+```bash
+# Default training
+python run.py
+
+# Use YAML config
+python run.py --config baseline.yaml
+
+# Override parameters
+python run.py --steps 15000 --lr 1e-4 --batch-size 64
+
+# Periodic backups
+python run.py --config experimental.yaml --backup-epochs 5
+```
+
+### Pipeline Components
+
+| Module | Purpose |
+|--------|---------|
+| `config.py` | YAML-based configuration with presets |
+| `trainer.py` | Main training loop with sync monitoring |
+| `losses.py` | Sync-aware and frequency-domain losses |
+| `optimizers.py` | Physics-informed optimization |
+| `schedulers.py` | Adaptive breathing schedules |
+| `evaluator.py` | Validation with oscillator diagnostics |
+| `checkpointing.py` | Safe checkpoint and resume logic |
+| `visualizer.py` | Real-time training dashboards |
+
+### 8 Novel Training Methods
+
+1. **Sync-Aware Loss**: Balances task loss with synchronization quality targeting golden ratio (0.618)
+2. **Physics-Informed Optimizer**: Symplectic updates that preserve oscillator energy
+3. **Adaptive Breathing Schedules**: LR adjustment triggered by sync instability
+4. **Multi-Scale Curriculum**: Progressive frequency band addition
+5. **Geometric Consistency**: SE(3) structure enforcement for motion tasks
+6. **Phase-Space Curriculum**: Adaptive damping decreasing with training progress
+7. **Frequency-Domain Loss**: Multi-scale frequency weighting
+8. **Kuramoto Energy Regularization**: Energy-based stability constraints
+
+### Results
+
+| Configuration | Accuracy | Sync Order | Notes |
+|---------------|----------|------------|-------|
+| Baseline | 52.3% | 0.45 | Standard training |
+| Full Pipeline | 57.2% | 0.62 | All methods enabled |
+
+See [New-Training/README.md](New-Training/README.md) for full documentation.
+
+---
+
 ## RLHF and DPO
 
 ### Vision DPO for Classification
@@ -415,9 +474,9 @@ R-1 will be the "4o moment" for this architecture.
   title={Harmonic Vision Transformer: Oscillator Dynamics on SE(3) Manifolds 
          as the Computational Substrate for Visual Perception},
   author={Christian Trey Rowell},
-  journal={NGSST Research Initiative},
   year={2026},
-  note={HVT v2.0 Production Release}
+  doi={10.5281/zenodo.18203893},
+  note={HVT v2.0 Production Release, v1.0.1}
 }
 ```
 
@@ -432,3 +491,5 @@ GitHub: [@calisweetleaf](https://github.com/calisweetleaf)
 ---
 
 *HVT v2.0: Synchronization is not a metaphor. It's the computation.*
+
+**License**: Somnus Sovereign Anti-Exploitation Software License

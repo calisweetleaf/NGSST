@@ -163,6 +163,7 @@ novel_methods:
 ### Real-Time Dashboard
 
 The training dashboard provides live visualization of:
+
 - Sync order evolution and target tracking
 - Training loss curves (task, sync, diversity)
 - Phase space organization
@@ -173,13 +174,16 @@ The training dashboard provides live visualization of:
 ### Key Metrics
 
 **Sync Order**: Should approach 0.618 (golden ratio)
+
 - Too low (<0.3): System is chaotic
 - Too high (>0.8): Over-synchronized
 
 **Energy Stability**: Should be low and stable
+
 - High values indicate unstable dynamics
 
 **Phase Coherence**: Measures organization
+
 - Higher values indicate better phase organization
 
 ## Development
@@ -225,11 +229,14 @@ If you use HVT v3 in your research:
 
 ## License
 
-MIT License - see LICENSE file for details.
+Somnus Sovereign Anti-Exploitation Software License - see [LICENSE](../LICENSE) for details.
+
+License Repository: [Somnus License and Dev Tools](https://github.com/calisweetleaf/somnus-license)
 
 ## Acknowledgments
 
 This work builds upon decades of research in:
+
 - **Kuramoto Oscillator Networks** (1970s-present)
 - **Hopfield Networks** (1980s)
 - **Gabor Filter Theory** (1980s)
@@ -240,4 +247,4 @@ Special thanks to the transformer community for providing the motivation to expl
 
 ---
 
-🌊 *"Let the oscillators breathe, and they will show you the way to better vision."*
+*"Let the oscillators breathe, and they will show you the way to better vision."*
