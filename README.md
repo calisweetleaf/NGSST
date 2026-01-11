@@ -185,16 +185,89 @@ python hvt_v2.py
 
 ---
 
+## New Training Pipeline
+
+The production training system lives in `run.py` with the full pipeline in `New-Training/code/`. This replaces ad-hoc training scripts with a unified, configurable system built specifically for oscillator dynamics.
+
+### Unified Entry Point
+
+```bash
+# Default training
+python run.py
+
+# Use YAML config
+python run.py --config baseline.yaml
+
+# Override parameters
+python run.py --steps 15000 --lr 1e-4 --batch-size 64
+
+# Periodic backups
+python run.py --config experimental.yaml --backup-epochs 5
+```
+
+### Pipeline Components
+
+| Module | Purpose |
+|--------|---------|
+| `config.py` | YAML-based configuration with presets |
+| `trainer.py` | Main training loop with sync monitoring |
+| `losses.py` | Sync-aware and frequency-domain losses |
+| `optimizers.py` | Physics-informed optimization |
+| `schedulers.py` | Adaptive breathing schedules |
+| `evaluator.py` | Validation with oscillator diagnostics |
+| `checkpointing.py` | Safe checkpoint and resume logic |
+| `visualizer.py` | Real-time training dashboards |
+
+### 8 Novel Training Methods
+
+1. **Sync-Aware Loss**: Balances task loss with synchronization quality targeting golden ratio (0.618)
+2. **Physics-Informed Optimizer**: Symplectic updates that preserve oscillator energy
+3. **Adaptive Breathing Schedules**: LR adjustment triggered by sync instability
+4. **Multi-Scale Curriculum**: Progressive frequency band addition
+5. **Geometric Consistency**: SE(3) structure enforcement for motion tasks
+6. **Phase-Space Curriculum**: Adaptive damping decreasing with training progress
+7. **Frequency-Domain Loss**: Multi-scale frequency weighting
+8. **Kuramoto Energy Regularization**: Energy-based stability constraints
+
+### Results
+
+| Configuration | Accuracy | Sync Order | Notes |
+|---------------|----------|------------|-------|
+| Baseline | 52.3% | 0.45 | Standard training |
+| Full Pipeline | 57.2% | 0.62 | All methods enabled |
+
+The full pipeline achieves **+4.9% absolute improvement** while maintaining sync order near the 0.618 golden ratio target.
+
+See [New-Training/README.md](New-Training/README.md) for full documentation, [TRAINING_GUIDE.md](New-Training/docs/TRAINING_GUIDE.md) for configuration options, and [RESULTS_REPORT.md](New-Training/docs/RESULTS_REPORT.md) for complete ablation study results.
+
+---
+
 ## Repository Structure
 
-```
+```file-tree
 ngsst-clean/
 ├── hvt_v2.py              # Core HVT v2.0 implementation (THE MODEL)
-├── train.py               # Single-dataset training loop
-├── train_multi.py         # Multi-dataset training (CIFAR-10/SVHN)
+├── run.py                 # Unified training entry point
+├── train.py               # Single-dataset training loop (legacy)
+├── train_multi.py         # Multi-dataset training (legacy)
 ├── validation.py          # Comprehensive architecture validation
 ├── graph_viz.py           # Computation graph export (ONNX, FX)
 ├── visualize_architecture.py  # Architecture visualization tools
+│
+├── New-Training/          # Production training pipeline
+│   ├── code/              # Core pipeline modules
+│   │   ├── config.py      # YAML configuration management
+│   │   ├── trainer.py     # Main training loop
+│   │   ├── losses.py      # Sync-aware loss functions
+│   │   ├── optimizers.py  # Physics-informed optimizers
+│   │   ├── schedulers.py  # Adaptive breathing schedules
+│   │   ├── datasets.py    # Dataset handling
+│   │   ├── evaluator.py   # Validation and diagnostics
+│   │   ├── checkpointing.py # Checkpoint management
+│   │   └── visualizer.py  # Training dashboards
+│   ├── configs/           # YAML presets (baseline, experimental)
+│   ├── docs/              # Training guides and results
+│   └── tests/             # Pipeline tests
 │
 ├── rlhf/                  # Reinforcement Learning from Human Feedback
 │   ├── run_rlhf.py        # Full RLHF pipeline
@@ -214,6 +287,19 @@ ngsst-clean/
 │
 └── requirements.txt       # Dependencies
 ```
+
+---
+
+## Computational Graph
+
+The full autograd computational graph of HVT v2.0, showing every operation from Gabor tokenization through Kuramoto dynamics to classification.
+
+<p align="center">
+  <a href="visualizations/computational_graph.svg">
+    <img src="visualizations/computational_graph.png" alt="HVT Computational Graph" width="700">
+  </a>
+  <br><em>Click to view full zoomable SVG (9,673 nodes)</em>
+</p>
 
 ---
 

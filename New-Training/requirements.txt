@@ -1,0 +1,41 @@
+# HVT v3 Training Pipeline Requirements
+# Optimized for oscillator-based vision transformer training
+
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.21.0
+
+# Configuration and serialization
+PyYAML>=6.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Optional dependencies for enhanced functionality
+# (Install as needed)
+
+# Dataset handling (optional but recommended)
+datasets>=2.0.0  # For streaming datasets
+
+# Logging and monitoring (optional)
+wandb>=0.13.0  # For experiment tracking
+tensorboard>=2.10.0  # For local monitoring
+
+# Scientific computing (optional)
+scipy>=1.7.0
+scikit-learn>=1.0.0
+
+# Performance optimization (optional)
+torch-tb-profiler>=0.4.0  # For performance profiling
+
+# Development dependencies (optional)
+pytest>=7.0.0  # For running tests
+black>=22.0.0  # For code formatting
+flake8>=4.0.0  # For linting
+mypy>=0.991  # For type checking
+
+# Note: Some dependencies are optional and only needed for specific features
+# Install minimal set with: pip install -r requirements.txt
+# Install full set with: pip install -r requirements.txt datasets wandb tensorboard scipy scikit-learn

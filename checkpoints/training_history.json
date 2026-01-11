@@ -1,0 +1,10 @@
+[
+  {
+    "epoch": 1,
+    "step": 1,
+    "avg_loss": NaN,
+    "avg_accuracy": 0.0,
+    "avg_sync_order": 0.9726436138153076,
+    "epoch_time": 0.4090540409088135
+  }
+]

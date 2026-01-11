@@ -1,0 +1,13 @@
+# Quick CIFAR-100 test config
+
+dataset_name: cifar100
+num_classes: 100
+
+# Keep training minimal for smoke test
+total_steps: 1
+batch_size: 1
+learning_rate: 3e-4
+device: cpu
+checkpoint_dir: checkpoints
+save_every: 1
+log_every: 1
